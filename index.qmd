@@ -238,14 +238,12 @@ interactive debugging: pause the execution of a function and launch environment 
 ## Methods
 
 | Function                          | Use                                              |
-|-----------------------------------|--------------------------------------------------|
+|------------------------------|------------------------------------------|
 | `print()` / `cat()` / `message()` | output diagnostic information in code            |
 | `traceback()`                     | locate error                                     |
 | `browser()`                       | open interactive debugger                        |
 | `debug()`                         | automatically open debugger when function called |
 | `trace()`                         | start debugger at specific location in function  |
-
-
 
 ## Sourcing
 
@@ -265,7 +263,6 @@ for the best debugging experience 😎
 
 ![](img/source-marked.jpg)
 
-
 ## Set up
 
 <br>
@@ -282,8 +279,7 @@ g("a")
 
 # Debugging your own code
 
-
-## `print()`
+## print()
 
 ```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2"}
 f <- function(x) {
@@ -292,7 +288,9 @@ f <- function(x) {
 }
 
 g <- function(x) f(x)
+```
 
+```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2"}
 g("a")
 ```
 
@@ -312,7 +310,7 @@ can assess `context` by value printed
 good for `your code`
 :::
 
-## `cat()`
+## cat()
 
 ```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2-3"}
 f <- function(x) {
@@ -326,9 +324,7 @@ g <- function(x) f(x)
 g("a")
 ```
 
-
 ::: notes
-
 can assess `location` by where `print` statement is inserted
 
 can assess `context` by value printed
@@ -337,16 +333,10 @@ can assess `context` by value printed
 
 good for `your code`
 
-
 print is handy to see full object; cat is handy to create smaller messages
 :::
 
-
-## `traceback()`
-
-<br>
-
-shows the sequence of calls that lead to the error.
+## traceback()
 
 <br>
 
@@ -358,16 +348,19 @@ traceback()
 
 ![](img/traceback.PNG)
 
+<br>
+
+shows the sequence of calls that lead to the error.
+
 ::: notes
 used interactively in console, called for last error observed
 :::
 
 ::: footer
-the trace back is also known as:
-call stack, stack trace, & back trace
+the trace back is also known as: <br> call stack, stack trace, & back trace
 :::
 
-## Visualized `traceback()`
+## Richer trace back
 
 <br>
 
@@ -375,14 +368,74 @@ call stack, stack trace, & back trace
 source(here::here("demo/my_functions.R"))
 options(error = rlang::entrace) 
 g("a")
+rlang::last_error()
+```
+
+![](img/rlang_last-error.PNG)
+
+## Richer trace back
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="5"}
+source(here::here("demo/my_functions.R"))
+options(error = rlang::entrace) 
+g("a")
+rlang::last_error()
 rlang::last_trace()
 ```
 
 ![](img/rlang_last-trace.PNG)
 
+<br>
+
+`options(error = rlang::entrace)` <br> could go in your `.Rprofile`
+
+## browser()
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="2"}
+f <- function(x) {
+  browser(x)
+  x + 1
+}
+
+g <- function(x) f(x)
+```
+
+<br>
+
+`browser()` opens the interactive debugger.
+
+1.  Modify the function by inserting a `browser()` statement.
+
+2.  Source the function.
+
+3.  Execute the function.
+
+## Interactive debugger
+
+![](img/interactive-debugger.PNG)
+
+## Browse\[1\]\> tips
+
+Investigate objects: `ls()`, `str()`, `ls.str()`, `print()`
+
+<brshort>
+
+Control execution:
+
+| command   | operation               |
+|-----------|-------------------------|
+| `n`       | next statement          |
+| `c`       | continue                |
+| `s`       | step into function call |
+| `f`       | finish loop / function  |
+| `where`   | show previous calls     |
+| `Q`       | quit debugger           |
 
 
-## Browser
+:::
+
 
 # Debugging in RStudio
 

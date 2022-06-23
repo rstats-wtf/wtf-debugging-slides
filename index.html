@@ -653,16 +653,17 @@
 
 </section>
 <section id="print" class="slide level2">
-<h2><code>print()</code></h2>
+<h2>print()</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">print</span>(x)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>}</span>
 <span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "a"</code></pre>
 </div>
@@ -691,17 +692,17 @@
       }</style></aside>
 </section>
 <section id="cat" class="slide level2">
-<h2><code>cat()</code></h2>
+<h2>cat()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">cat</span>(<span class="st">"f()</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">cat</span>(<span class="st">"x ="</span>, x, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>}</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">cat</span>(<span class="st">"f()</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">cat</span>(<span class="st">"x ="</span>, x, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>f()
 x = a </code></pre>
@@ -729,15 +730,17 @@ x = a </code></pre>
       }</style></aside>
 </section>
 <section id="traceback" class="slide level2">
-<h2><code>traceback()</code></h2>
-<p>shows the sequence of calls that lead to the error.</p>
+<h2>traceback()</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">traceback</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">traceback</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-<img data-src="img/traceback.PNG" class="r-stretch"><aside class="notes">
+<img data-src="img/traceback.PNG" class="r-stretch"><p><br></p>
+<p>shows the sequence of calls that lead to the error.</p>
+<aside class="notes">
 <p>used interactively in console, called for last error observed</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -751,21 +754,99 @@ x = a </code></pre>
           display:block!important;
       }</style></aside>
 <div class="footer">
-<p>the trace back is also known as: call stack, stack trace, &amp; back trace</p>
+<p>the trace back is also known as: <br> call stack, stack trace, &amp; back trace</p>
 </div>
 </section>
-<section id="visualized-traceback" class="slide level2">
-<h2>Visualized <code>traceback()</code></h2>
+<section id="richer-trace-back" class="slide level2">
+<h2>Richer trace back</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4"></a>rlang<span class="sc">::</span><span class="fu">last_trace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="2,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>rlang<span class="sc">::</span><span class="fu">last_error</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-<img data-src="img/rlang_last-trace.PNG" class="r-stretch"></section>
+<img data-src="img/rlang_last-error.PNG" class="r-stretch"></section>
+<section id="richer-trace-back-1" class="slide level2">
+<h2>Richer trace back</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>rlang<span class="sc">::</span><span class="fu">last_error</span>()</span>
+<span id="cb12-5"><a href="#cb12-5"></a>rlang<span class="sc">::</span><span class="fu">last_trace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="img/rlang_last-trace.PNG" class="r-stretch"><p><br></p>
+<p><code>options(error = rlang::entrace)</code> <br> could go in your <code>.Rprofile</code></p>
+</section>
 <section id="browser" class="slide level2">
-<h2>Browser</h2>
+<h2>browser()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">browser</span>(x)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><code>browser()</code> opens the interactive debugger.</p>
+<ol type="1">
+<li><p>Modify the function by inserting a <code>browser()</code> statement.</p></li>
+<li><p>Source the function.</p></li>
+<li><p>Execute the function.</p></li>
+</ol>
+</section>
+<section id="interactive-debugger" class="slide level2">
+<h2>Interactive debugger</h2>
+
+<img data-src="img/interactive-debugger.PNG" class="r-stretch"></section>
+<section id="browse1-tips" class="slide level2">
+<h2>Browse[1]&gt; tips</h2>
+<p>Investigate objects: <code>ls()</code>, <code>str()</code>, <code>ls.str()</code>, <code>print()</code></p>
+<p><brshort></brshort></p>
+<p>Control execution:</p>
+<table>
+<thead>
+<tr class="header">
+<th>command</th>
+<th>operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>n</code></td>
+<td>next statement</td>
+</tr>
+<tr class="even">
+<td><code>c</code></td>
+<td>continue</td>
+</tr>
+<tr class="odd">
+<td><code>s</code></td>
+<td>step into function call</td>
+</tr>
+<tr class="even">
+<td><code>f</code></td>
+<td>finish loop / function</td>
+</tr>
+<tr class="odd">
+<td><code>where</code></td>
+<td>show previous calls</td>
+</tr>
+<tr class="even">
+<td><code>Q</code></td>
+<td>quit debugger</td>
+</tr>
+</tbody>
+</table>
+<p>:::</p>
+</section>
+<section id="interactive-debugger-tips" class="slide level2">
+<h2>Interactive debugger tips</h2>
 </section></section>
 <section id="debugging-in-rstudio" class="title-slide slide level1 center">
 <h1>Debugging in RStudio</h1>
