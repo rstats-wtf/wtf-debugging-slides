@@ -420,8 +420,11 @@
 <li><p>Amanda Gadrow 2018 Webinar <em>Debugging techniques in RStudio</em> <br> <a href="https://www.rstudio.com/resources/webinars/debugging-techniques-in-rstudio/" class="uri">https://www.rstudio.com/resources/webinars/debugging-techniques-in-rstudio/</a></p></li>
 <li><p>Jim Hester 2019 <em>Introduction to debugging in R and RStudio</em> <br> <a href="https://www.jimhester.com/talk/2019-crug-debugging/" class="uri">https://www.jimhester.com/talk/2019-crug-debugging/</a></p></li>
 <li><p>Maëlle Salmon 2021 <em>How to become a better R code detective?</em> <br> <a href="https://masalmon.eu/2021/07/13/code-detective/" class="uri">https://masalmon.eu/2021/07/13/code-detective/</a></p></li>
-<li><p>Kara Woo 2019 RStudio Conf <em>Box plots A case study in debugging and perseverance</em> <br> <a href="https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/" class="uri">https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/</a></p></li>
+<li><p>Kara Woo 2019 RStudio Conf <em>Box plots A case study in debugging and perseverance</em> <a href="https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/" class="uri">https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/</a></p></li>
 </ul>
+<div class="footer">
+
+</div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -471,9 +474,9 @@
 <div class="r-fit-text">
 <p>minimum <code>repr</code>oducible <code>ex</code>ample</p>
 </div>
-<p><br></p>
+<p><brshort></brshort></p>
 
-<img data-src="img/reprex-logo.png" class="r-stretch quarto-figure-center"><p><br></p>
+<img data-src="img/reprex-logo.png" class="r-stretch quarto-figure-center"><p><brshort></brshort></p>
 <div class="center-x">
 <p><a href="https://reprex.tidyverse.org/" class="uri">https://reprex.tidyverse.org/</a></p>
 </div>
@@ -580,6 +583,43 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="methods" class="slide level2">
+<h2>Methods</h2>
+<table>
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>print()</code> / <code>cat()</code> / <code>message()</code></td>
+<td>output diagnostic information in code</td>
+</tr>
+<tr class="even">
+<td><code>traceback()</code></td>
+<td>locate error</td>
+</tr>
+<tr class="odd">
+<td><code>browser()</code></td>
+<td>open interactive debugger</td>
+</tr>
+<tr class="even">
+<td><code>debug()</code></td>
+<td>automatically open debugger when function called</td>
+</tr>
+<tr class="odd">
+<td><code>trace()</code></td>
+<td>start debugger at specific location in function</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="sourcing" class="slide level2">
 <h2>Sourcing</h2>
 <p><br></p>
@@ -608,11 +648,11 @@
 </div>
 </section></section>
 <section>
-<section id="print" class="title-slide slide level1 center">
-<h1>Print</h1>
+<section id="debugging-your-own-code" class="title-slide slide level1 center">
+<h1>Debugging your own code</h1>
 
 </section>
-<section id="print-1" class="slide level2">
+<section id="print" class="slide level2">
 <h2><code>print()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
@@ -630,17 +670,14 @@
 <pre><code>Error in x + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
-<div class="fragment">
-<ul>
-<li><p>can assess <code>location</code> by where <code>print</code> statement is inserted</p></li>
-<li><p>can assess <code>context</code> by value printed</p></li>
-<li><p><code>non-interactive</code> debugging</p></li>
-<li><p>good for <code>your code</code></p></li>
-</ul>
 <aside class="notes">
 <p>Insert numerous print statements to precisely locate the problem, and see the values of important variables.</p>
 <p>Print debugging is slow and primitive, but it always works.</p>
 <p>Can provide location by inserting print statements in different places, can provide context by seeing values.</p>
+<p>can assess <code>location</code> by where <code>print</code> statement is inserted</p>
+<p>can assess <code>context</code> by value printed</p>
+<p><code>non-interactive</code> debugging</p>
+<p>good for <code>your code</code></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -652,7 +689,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="cat" class="slide level2">
 <h2><code>cat()</code></h2>
@@ -674,14 +710,11 @@ x = a </code></pre>
 <pre><code>Error in x + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
-<div class="fragment">
-<ul>
-<li><p>can assess <code>location</code> by where <code>print</code> statement is inserted</p></li>
-<li><p>can assess <code>context</code> by value printed</p></li>
-<li><p><code>non-interactive</code> debugging</p></li>
-<li><p>good for <code>your code</code></p></li>
-</ul>
 <aside class="notes">
+<p>can assess <code>location</code> by where <code>print</code> statement is inserted</p>
+<p>can assess <code>context</code> by value printed</p>
+<p><code>non-interactive</code> debugging</p>
+<p>good for <code>your code</code></p>
 <p>print is handy to see full object; cat is handy to create smaller messages</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -694,20 +727,43 @@ x = a </code></pre>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
-</section></section>
-<section>
-<section id="debugging-fuctions" class="title-slide slide level1 center">
-<h1>Debugging fuctions</h1>
-
 </section>
-<section id="trace-back" class="slide level2">
-<h2>Trace back</h2>
-<p>The <code>trace back</code> shows you the sequence of functions executed leading up to the error.</p>
+<section id="traceback" class="slide level2">
+<h2><code>traceback()</code></h2>
+<p>shows the sequence of calls that lead to the error.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">traceback</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="img/traceback.PNG" class="r-stretch"><aside class="notes">
+<p>used interactively in console, called for last error observed</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="footer">
 <p>the trace back is also known as: call stack, stack trace, &amp; back trace</p>
 </div>
 </section>
+<section id="visualized-traceback" class="slide level2">
+<h2>Visualized <code>traceback()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>rlang<span class="sc">::</span><span class="fu">last_trace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="img/rlang_last-trace.PNG" class="r-stretch"></section>
 <section id="browser" class="slide level2">
 <h2>Browser</h2>
 </section></section>
@@ -742,6 +798,12 @@ x = a </code></pre>
 </section>
 <section id="rmarkdown" class="slide level2">
 <h2>Rmarkdown</h2>
+</section>
+<section id="stuff" class="slide level2">
+<h2>stuff</h2>
+<p>rmarkdown chunk option <code>error=TRUE</code></p>
+<p><code>knitr::knit_exit()</code></p>
+<p>more</p>
 </section>
 <section id="shiny" class="slide level2">
 <h2>Shiny</h2>

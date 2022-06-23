@@ -17,7 +17,6 @@ execute:
 
 # Getting started
 
-
 ```{r}
 library(countdown)
 ```
@@ -26,7 +25,6 @@ library(countdown)
 # fill for font awesome icons
 fa_fill <- "#C7B41D"
 ```
-
 
 ## Licensing
 
@@ -60,7 +58,10 @@ Pretty recent?
 
 -   Maëlle Salmon 2021 *How to become a better R code detective?* <br> <https://masalmon.eu/2021/07/13/code-detective/>
 
--   Kara Woo 2019 RStudio Conf *Box plots A case study in debugging and perseverance* <br> <https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/>
+-   Kara Woo 2019 RStudio Conf *Box plots A case study in debugging and perseverance* <https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/>
+
+::: footer
+:::
 
 ## 
 
@@ -127,11 +128,11 @@ Restart R, especially when things get weird.
 minimum `repr`oducible `ex`ample
 :::
 
-<br>
+<brshort>
 
 ![](img/reprex-logo.png){fig-align="center"}
 
-<br>
+<brshort>
 
 ::: center-x
 <https://reprex.tidyverse.org/>
@@ -198,7 +199,7 @@ Troubleshooting strategies:
 
 3.  Reprex
 
-# Moving on 
+# Moving on
 
 <br>
 
@@ -206,13 +207,11 @@ Troubleshooting strategies:
 from troubleshooting to...
 :::
 
-
 <brshort>
 
 ::: r-fit-text
 formal `debugging` techniques.
 :::
-
 
 ## Key concepts
 
@@ -236,6 +235,18 @@ debugging `your code` vs `their code`
 interactive debugging: pause the execution of a function and launch environment where you can interactively explore what's happening
 :::
 
+## Methods
+
+| Function                          | Use                                              |
+|-----------------------------------|--------------------------------------------------|
+| `print()` / `cat()` / `message()` | output diagnostic information in code            |
+| `traceback()`                     | locate error                                     |
+| `browser()`                       | open interactive debugger                        |
+| `debug()`                         | automatically open debugger when function called |
+| `trace()`                         | start debugger at specific location in function  |
+
+
+
 ## Sourcing
 
 <br>
@@ -255,7 +266,6 @@ for the best debugging experience 😎
 ![](img/source-marked.jpg)
 
 
-
 ## Set up
 
 <br>
@@ -270,7 +280,8 @@ g <- function(x) f(x)
 g("a")
 ```
 
-# Print
+# Debugging your own code
+
 
 ## `print()`
 
@@ -285,22 +296,20 @@ g <- function(x) f(x)
 g("a")
 ```
 
-. . .
-
--   can assess `location` by where `print` statement is inserted
-
--   can assess `context` by value printed
-
--   `non-interactive` debugging
-
--   good for `your code`
-
 ::: notes
 Insert numerous print statements to precisely locate the problem, and see the values of important variables.
 
 Print debugging is slow and primitive, but it always works.
 
 Can provide location by inserting print statements in different places, can provide context by seeing values.
+
+can assess `location` by where `print` statement is inserted
+
+can assess `context` by value printed
+
+`non-interactive` debugging
+
+good for `your code`
 :::
 
 ## `cat()`
@@ -317,30 +326,61 @@ g <- function(x) f(x)
 g("a")
 ```
 
-. . .
-
--   can assess `location` by where `print` statement is inserted
-
--   can assess `context` by value printed
-
--   `non-interactive` debugging
-
--   good for `your code`
 
 ::: notes
+
+can assess `location` by where `print` statement is inserted
+
+can assess `context` by value printed
+
+`non-interactive` debugging
+
+good for `your code`
+
+
 print is handy to see full object; cat is handy to create smaller messages
 :::
 
-# Debugging fuctions
 
-## Trace back
+## `traceback()`
 
-The `trace back` shows you the sequence of functions executed leading up to the error.
+<br>
 
+shows the sequence of calls that lead to the error.
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="3"}
+source(here::here("demo/my_functions.R"))
+g("a")
+traceback()
+```
+
+![](img/traceback.PNG)
+
+::: notes
+used interactively in console, called for last error observed
+:::
 
 ::: footer
-the trace back is also known as: call stack, stack trace, & back trace
+the trace back is also known as:
+call stack, stack trace, & back trace
 :::
+
+## Visualized `traceback()`
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="2,4"}
+source(here::here("demo/my_functions.R"))
+options(error = rlang::entrace) 
+g("a")
+rlang::last_trace()
+```
+
+![](img/rlang_last-trace.PNG)
+
+
 
 ## Browser
 
@@ -359,5 +399,13 @@ the trace back is also known as: call stack, stack trace, & back trace
 ## Piped expressions
 
 ## Rmarkdown
+
+## stuff
+
+rmarkdown chunk option `error=TRUE`
+
+`knitr::knit_exit()`
+
+more
 
 ## Shiny
