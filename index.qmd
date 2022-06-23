@@ -15,6 +15,9 @@ execute:
   freeze: auto
 ---
 
+# Getting started
+
+
 ```{r}
 library(countdown)
 ```
@@ -24,7 +27,6 @@ library(countdown)
 fa_fill <- "#C7B41D"
 ```
 
-# Getting started
 
 ## Licensing
 
@@ -186,7 +188,6 @@ Jenny Bryan (2020) *Object of type closure is not subsettable*
 
 <br>
 
-
 Troubleshooting strategies:
 
 <br>
@@ -197,14 +198,21 @@ Troubleshooting strategies:
 
 3.  Reprex
 
-
-## Moving on to...
+# Moving on 
 
 <br>
 
 ::: r-fit-text
+from troubleshooting to...
+:::
+
+
+<brshort>
+
+::: r-fit-text
 formal `debugging` techniques.
 :::
+
 
 ## Key concepts
 
@@ -228,6 +236,26 @@ debugging `your code` vs `their code`
 interactive debugging: pause the execution of a function and launch environment where you can interactively explore what's happening
 :::
 
+## Sourcing
+
+<br>
+
+⚠️ name your script with functions
+
+<brshort>
+
+⚠️ source your script with functions
+
+<brshort>
+
+for the best debugging experience 😎
+
+<br>
+
+![](img/source-marked.jpg)
+
+
+
 ## Set up
 
 <br>
@@ -242,10 +270,7 @@ g <- function(x) f(x)
 g("a")
 ```
 
-
-# Print 
-
-
+# Print
 
 ## `print()`
 
@@ -261,8 +286,6 @@ g("a")
 ```
 
 . . .
-
-
 
 -   can assess `location` by where `print` statement is inserted
 
@@ -308,11 +331,26 @@ g("a")
 print is handy to see full object; cat is handy to create smaller messages
 :::
 
-# Traceback
+# Debugging fuctions
 
-# Browser
+## Trace back
 
-# Trace
+The `trace back` shows you the sequence of functions executed leading up to the error.
+
+
+::: footer
+the trace back is also known as: call stack, stack trace, & back trace
+:::
+
+## Browser
+
+# Debugging in RStudio
+
+# Debugging others' code
+
+# Advanced debugging
+
+## Trace
 
 # Special cases
 
