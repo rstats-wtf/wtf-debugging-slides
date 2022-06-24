@@ -2,7 +2,7 @@
 title: "Debugging"
 author: "Shannon Pileggi"
 footer:  "[Debugging](https://github.com/shannonpileggi/iterating-well-with-purrr)"
-logo: "img/wtf-logo-monograms-border3-transparent-bg-230x230.jpg"
+logo: "img/wtf-logo-square-transparent.png"
 format: 
   revealjs: 
     theme: [night, slides.scss]
@@ -242,7 +242,7 @@ interactive debugging: pause the execution of a function and launch environment 
 | `print()` / `cat()` / `message()` | output diagnostic information in code            |
 | `traceback()`                     | locate error                                     |
 | `browser()`                       | open interactive debugger                        |
-| `debug()`                         | automatically open debugger when function called |
+| `debug()` / `debugonce()`         | automatically open debugger when function called |
 | `trace()`                         | start debugger at specific location in function  |
 
 ## Sourcing
@@ -416,31 +416,96 @@ g <- function(x) f(x)
 
 ![](img/interactive-debugger.PNG)
 
-## Browse\[1\]\> tips
+## Interactive debugger tips
 
 Investigate objects: `ls()`, `str()`, `ls.str()`, `print()`
+
+. . .
 
 <brshort>
 
 Control execution:
 
-| command   | operation               |
-|-----------|-------------------------|
-| `n`       | next statement          |
-| `c`       | continue                |
-| `s`       | step into function call |
-| `f`       | finish loop / function  |
-| `where`   | show previous calls     |
-| `Q`       | quit debugger           |
-
+| command | operation               |
+|---------|-------------------------|
+| `n`     | next statement          |
+| `c`     | continue                |
+| `s`     | step into function call |
+| `f`     | finish loop / function  |
+| `where` | show previous calls     |
+| `Q`     | quit debugger           |
 
 :::
 
-
 # Debugging in RStudio
+
+## Editor breakpoints
+
+red circle = breakpoint = `browser()`
+
+(but you don't have to change your code)
+
+![](img/breakpoint.PNG)
+
+. . .
+
+Set / re-set an editor breakpoint:
+
+-   click to the left of the line number in the source file
+
+-   press Shift+F9 with your cursor on the line
+
+## Stop on error
+
+Automatically invoke interactive debugger on error.
+
+![](img/break-in-code.png)
+
+## Debugging console
+
+![](img/cheatsheet-debug-console.PNG)
 
 # Debugging others' code
 
+## debug() 
+
+`debug()` = `browser()` in first line of function
+
+```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="4,7"}
+# source if code is yours, otherwise not necessary
+source(here::here("demo/my_functions.R"))
+# set debugging flag
+debug("g")
+g("a")
+# turn off debugging flag
+undebug("g")
+```
+
+. . .
+
+ * interactive debugger is initiated every time `g()` is executed, until `undebug("g")`
+ 
+ * depending on function internals, this can be... buggy
+
+
+## debugonce() 
+
+`debugone()` = `browser()` in first line of function
+
+```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="4"}
+# source if code is yours, otherwise not necessary
+source(here::here("demo/my_functions.R"))
+# set debugging flag
+debugonce("g")
+g("a")
+```
+
+. . .
+
+ * one time only!
+
+ * interactive debugger initiated a **single** time when `g()` is executed
+ 
 # Advanced debugging
 
 ## Trace
