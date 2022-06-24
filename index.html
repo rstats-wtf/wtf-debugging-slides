@@ -733,7 +733,7 @@ x = a </code></pre>
 <h2>traceback()</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">source</span>(<span class="st">"demo/my_functions.R"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="fu">traceback</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -761,7 +761,7 @@ x = a </code></pre>
 <h2>Richer trace back</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="2,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="2,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">source</span>(<span class="st">"demo/my_functions.R"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4"></a>rlang<span class="sc">::</span><span class="fu">last_error</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -772,7 +772,7 @@ x = a </code></pre>
 <h2>Richer trace back</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">source</span>(<span class="st">"demo/my_functions.R"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">options</span>(<span class="at">error =</span> rlang<span class="sc">::</span>entrace) </span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
 <span id="cb12-4"><a href="#cb12-4"></a>rlang<span class="sc">::</span><span class="fu">last_error</span>()</span>
@@ -865,15 +865,51 @@ x = a </code></pre>
 </ul>
 </div>
 </section>
-<section id="stop-on-error" class="slide level2">
-<h2>Stop on error</h2>
-<p>Automatically invoke interactive debugger on error.</p>
+<section id="editor-breakpoints-1" class="slide level2">
+<h2>Editor breakpoints</h2>
+<p>red circle = breakpoint = <code>browser()</code></p>
+<p>(but you don’t have to change your code)</p>
 
-<img data-src="img/break-in-code.png" class="r-stretch"></section>
+<img data-src="img/breakpoint.PNG" class="r-stretch"><p>To activate, either</p>
+<ul>
+<li><p>click IDE Source button, or</p></li>
+<li><p><code>debugSource(</code>“demo/my_functions.R”<code>)</code></p></li>
+</ul>
+</section>
+<section id="ide-on-error" class="slide level2">
+<h2>IDE on error</h2>
+<p>Automatically invoke actions on error.</p>
+
+<img data-src="img/IDE_debug_menu.png" style="width:70.0%" class="r-stretch"></section>
+<section id="ide-on-error-options" class="slide level2">
+<h2>IDE on error options</h2>
+
+<img data-src="img/IDE_debug_on-error.png" class="r-stretch quarto-figure-left"></section>
 <section id="debugging-console" class="slide level2">
 <h2>Debugging console</h2>
 
-<img data-src="img/cheatsheet-debug-console.PNG" class="r-stretch"></section></section>
+<img data-src="img/cheatsheet-debug-console.PNG" class="r-stretch"></section>
+<section id="error-inspector" class="slide level2">
+<h2>Error inspector</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># IDE Error Inspector not triggered</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># IDE Error Inspector not triggered</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">strsplit</span>(<span class="fu">factor</span>(<span class="st">"a,b"</span>), <span class="st">","</span>)</span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co"># IDE Error Inspector not triggered</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">strsplit</span>(x, <span class="st">","</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="fu">f</span>(<span class="fu">factor</span>(<span class="st">"a,b"</span>))</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># IDE Error Inspector yes triggered</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
+<span id="cb14-15"><a href="#cb14-15"></a><span class="fu">g</span>(<span class="fu">factor</span>(<span class="st">"a,b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The error inspector is only invoked <br> if <code>your</code> <code>code</code> is involved.</p>
+</section></section>
 <section>
 <section id="debugging-others-code" class="title-slide slide level1 center">
 <h1>Debugging others’ code</h1>
@@ -881,32 +917,32 @@ x = a </code></pre>
 </section>
 <section id="debug" class="slide level2">
 <h2>debug()</h2>
-<p><code>debug()</code> = <code>browser()</code> in first line of function</p>
+<p><code>debug()</code> = <code>browser()</code>/ <code>breakpoint</code> in first line of function</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="4,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># source if code is yours, otherwise not necessary</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># set debugging flag</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">debug</span>(<span class="st">"g"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># turn off debugging flag</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">undebug</span>(<span class="st">"g"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># source if code is yours, otherwise not necessary</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">source</span>(<span class="st">"demo/my_functions.R"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co"># set debugging flag</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">debug</span>(<span class="st">"g"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co"># turn off debugging flag</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">undebug</span>(<span class="st">"g"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <ul>
 <li><p>interactive debugger is initiated every time <code>g()</code> is executed, until <code>undebug("g")</code></p></li>
-<li><p>depending on function internals, this can be… buggy</p></li>
+<li><p>depending on function internals, this can… trap you in the debugger 😬</p></li>
 </ul>
 </div>
 </section>
 <section id="debugonce" class="slide level2">
 <h2>debugonce()</h2>
-<p><code>debugonce()</code> = <code>browser()</code> in first line of function</p>
+<p><code>debugonce()</code> = <code>browser()</code>/ <code>breakpoint</code> in first line of function</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># source if code is yours, otherwise not necessary</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"demo/my_functions.R"</span>))</span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="co"># set debugging flag</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">debugonce</span>(<span class="st">"g"</span>)</span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># source if code is yours, otherwise not necessary</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">source</span>(<span class="st">"demo/my_functions.R"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># set debugging flag</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="fu">debugonce</span>(<span class="st">"g"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>one time only!</p></li>

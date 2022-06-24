@@ -341,7 +341,7 @@ print is handy to see full object; cat is handy to create smaller messages
 <br>
 
 ```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="3"}
-source(here::here("demo/my_functions.R"))
+source("demo/my_functions.R")
 g("a")
 traceback()
 ```
@@ -365,7 +365,7 @@ the trace back is also known as: <br> call stack, stack trace, & back trace
 <br>
 
 ```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="2,4"}
-source(here::here("demo/my_functions.R"))
+source("demo/my_functions.R")
 options(error = rlang::entrace) 
 g("a")
 rlang::last_error()
@@ -378,7 +378,7 @@ rlang::last_error()
 <br>
 
 ```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="5"}
-source(here::here("demo/my_functions.R"))
+source("demo/my_functions.R")
 options(error = rlang::entrace) 
 g("a")
 rlang::last_error()
@@ -455,25 +455,66 @@ Set / re-set an editor breakpoint:
 
 -   press Shift+F9 with your cursor on the line
 
-## Stop on error
+## Editor breakpoints
 
-Automatically invoke interactive debugger on error.
+red circle = breakpoint = `browser()`
 
-![](img/break-in-code.png)
+(but you don't have to change your code)
+
+![](img/breakpoint.PNG)
+
+To activate, either
+
+-   click IDE Source button, or
+
+-   `debugSource(`"demo/my_functions.R"`)`
+
+## IDE on error
+
+Automatically invoke actions on error.
+
+![](img/IDE_debug_menu.png){width="70%"}
+
+## IDE on error options
+
+![](img/IDE_debug_on-error.png){fig-align="left"}
 
 ## Debugging console
 
 ![](img/cheatsheet-debug-console.PNG)
 
+## Error inspector
+
+```{r, echo=TRUE, eval=FALSE}
+# IDE Error Inspector not triggered
+f <- function(x) x + 1
+g <- function(x) f(x)
+g("a")
+
+# IDE Error Inspector not triggered
+strsplit(factor("a,b"), ",")
+
+# IDE Error Inspector not triggered
+f <- function(x) strsplit(x, ",")
+f(factor("a,b"))
+
+# IDE Error Inspector yes triggered
+g <- function(x) f(x)
+g(factor("a,b"))
+
+```
+
+The error inspector is only invoked <br> if `your` `code` is involved.
+
 # Debugging others' code
 
-## debug() 
+## debug()
 
-`debug()` = `browser()` in first line of function
+`debug()` = `browser()`/ `breakpoint` in first line of function
 
 ```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="4,7"}
 # source if code is yours, otherwise not necessary
-source(here::here("demo/my_functions.R"))
+source("demo/my_functions.R")
 # set debugging flag
 debug("g")
 g("a")
@@ -483,27 +524,26 @@ undebug("g")
 
 . . .
 
- * interactive debugger is initiated every time `g()` is executed, until `undebug("g")`
- 
- * depending on function internals, this can be... buggy
+-   interactive debugger is initiated every time `g()` is executed, until `undebug("g")`
 
+-   depending on function internals, this can... trap you in the debugger 😬
 
-## debugonce() 
+## debugonce()
 
-`debugonce()` = `browser()` in first line of function
+`debugonce()` = `browser()`/ `breakpoint` in first line of function
 
 ```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="4"}
 # source if code is yours, otherwise not necessary
-source(here::here("demo/my_functions.R"))
+source("demo/my_functions.R")
 # set debugging flag
 debugonce("g")
 g("a")
 ```
 
- * one time only!
+-   one time only!
 
- * interactive debugger initiated a **single** time when `g()` is executed
- 
+-   interactive debugger initiated a **single** time when `g()` is executed
+
 # Advanced debugging
 
 ## Trace
