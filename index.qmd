@@ -490,7 +490,7 @@ undebug("g")
 
 ## debugonce() 
 
-`debugone()` = `browser()` in first line of function
+`debugonce()` = `browser()` in first line of function
 
 ```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="4"}
 # source if code is yours, otherwise not necessary
@@ -499,8 +499,6 @@ source(here::here("demo/my_functions.R"))
 debugonce("g")
 g("a")
 ```
-
-. . .
 
  * one time only!
 
