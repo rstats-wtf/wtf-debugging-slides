@@ -544,13 +544,83 @@ g("a")
 
 -   interactive debugger initiated a **single** time when `g()` is executed
 
-# Advanced debugging
 
-## Trace
+## `trace()` overview
+
+<br>
+
+* `trace()` allows you to insert debugging code <br>(e.g., a call to `browser` or `recover`)<br> at chosen places in any function. 
+
+* a call to `untrace` cancels the tracing. 
+
+## `trace()` where to insert
+
+<br>
+
+```{r, eval=TRUE, echo=TRUE,`code-line-numbers`="3"}
+f <- function(x) { x + 1 }
+g <- function(x) { f(x) }
+x <- as.list(body(g))
+x
+```
+
+<br>
+
+use `as.list` to investigate 🧐 the function
+
+<br>
+
+⚠️ `trace()` requires `{` in function definition
+
+## `trace()`intiate browser
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+# specify browser to initiate at second step in function
+trace(g, browser, at = list(c(2)))
+
+# call function to initiate browser
+g("a")
+
+# cancel tracing
+untrace(g)
+```
+
+
+## `trace()` intiate recover
+
+<br>
+
+general idea, buggy on this example
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+# specify recover to initiate at second step in function
+trace(g, recover, at = list(c(2)))
+
+# call function to initiate browser
+g("a")
+
+# cancel tracing
+untrace(g)
+```
+
 
 # Special cases
 
 ## Warnings
+
+If you want to dig deeper into a warning, you can convert them to errors.
+
+```{r}
+#options(warn = 0) # default, warnings deferred to end
+options(warn = 1) # print warning when it happens
+options(warn = 2) # converts all warnings to errors, allows you to use regular debugging tools
+```
+
+
 
 ## Piped expressions
 

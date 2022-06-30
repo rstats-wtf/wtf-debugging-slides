@@ -948,14 +948,67 @@ x = a </code></pre>
 <li><p>one time only!</p></li>
 <li><p>interactive debugger initiated a <strong>single</strong> time when <code>g()</code> is executed</p></li>
 </ul>
-</section></section>
-<section>
-<section id="advanced-debugging" class="title-slide slide level1 center">
-<h1>Advanced debugging</h1>
-
 </section>
-<section id="trace" class="slide level2">
-<h2>Trace</h2>
+<section id="trace-overview" class="slide level2">
+<h2><code>trace()</code> overview</h2>
+<p><br></p>
+<ul>
+<li><p><code>trace()</code> allows you to insert debugging code <br>(e.g., a call to <code>browser</code> or <code>recover</code>)<br> at chosen places in any function.</p></li>
+<li><p>a call to <code>untrace</code> cancels the tracing.</p></li>
+</ul>
+</section>
+<section id="trace-where-to-insert" class="slide level2">
+<h2><code>trace()</code> where to insert</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { x <span class="sc">+</span> <span class="dv">1</span> }</span>
+<span id="cb17-2"><a href="#cb17-2"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">f</span>(x) }</span>
+<span id="cb17-3"><a href="#cb17-3"></a>x <span class="ot">&lt;-</span> <span class="fu">as.list</span>(<span class="fu">body</span>(g))</span>
+<span id="cb17-4"><a href="#cb17-4"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+`{`
+
+[[2]]
+f(x)</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>use <code>as.list</code> to investigate 🧐 the function</p>
+<div class="fragment">
+<p><br></p>
+<p>⚠️ <code>trace()</code> requires <code>{</code> in function definition</p>
+</div>
+</section>
+<section id="traceintiate-browser" class="slide level2">
+<h2><code>trace()</code>intiate browser</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># specify browser to initiate at second step in function</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">trace</span>(g, browser, <span class="at">at =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">2</span>)))</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># call function to initiate browser</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># cancel tracing</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="fu">untrace</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="trace-intiate-recover" class="slide level2">
+<h2><code>trace()</code> intiate recover</h2>
+<p><br></p>
+<p>general idea, buggy on this example</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># specify recover to initiate at second step in function</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">trace</span>(g, recover, <span class="at">at =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">2</span>)))</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># call function to initiate browser</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">g</span>(<span class="st">"a"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6"></a></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># cancel tracing</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="fu">untrace</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section>
 <section>
 <section id="special-cases" class="title-slide slide level1 center">

@@ -13,3 +13,5 @@ f(factor("a,b"))
 # IDE Error Inspector yes triggered
 g <- function(x) f(x)
 g(factor("a,b"))
+
+
