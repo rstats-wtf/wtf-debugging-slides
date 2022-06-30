@@ -475,9 +475,23 @@ Automatically invoke actions on error.
 
 ![](img/IDE_debug_menu.png){width="70%"}
 
-## IDE on error options
+## IDE message only
 
-![](img/IDE_debug_on-error.png){fig-align="left"}
+<br>
+
+![](img/IDE_message-only.PNG)
+
+## IDE error inspector
+
+<br>
+
+![](img/IDE_error-inspector.PNG)
+
+## IDE break in code
+
+<br>
+
+![](img/IDE_break-in-code.PNG)
 
 ## Debugging console
 
@@ -544,68 +558,105 @@ g("a")
 
 -   interactive debugger initiated a **single** time when `g()` is executed
 
+## trace() overview
 
-## `trace()` overview
+`trace()` is a more flexible version of `debug()`
 
-<br>
+* `trace(fun, browser)` =  `debug(fun)`
 
-* `trace()` allows you to insert debugging code <br>(e.g., a call to `browser` or `recover`)<br> at chosen places in any function. 
+* equivalent to inserting `broswer()` in first line of function 
 
-* a call to `untrace` cancels the tracing. 
+. . .
 
-## `trace()` where to insert
+you an also insert _any_ code at _any_ location in function
 
-<br>
+* `trace(fun, browser, at = 2)` <br>inserts `browser()` at second step of `fun`
 
-```{r, eval=TRUE, echo=TRUE,`code-line-numbers`="3"}
-f <- function(x) { x + 1 }
-g <- function(x) { f(x) }
-x <- as.list(body(g))
-x
-```
+. . .
 
-<br>
 
-use `as.list` to investigate 🧐 the function
-
-<br>
+`untrace(fun)` cancels the tracing
 
 ⚠️ `trace()` requires `{` in function definition
 
-## `trace()`intiate browser
+## trace() default
 
 <br>
 
-```{r, eval=FALSE, echo=TRUE}
-# specify browser to initiate at second step in function
-trace(g, browser, at = list(c(2)))
-
-# call function to initiate browser
-g("a")
-
-# cancel tracing
-untrace(g)
+```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="1,4"}
+trace(colSums, browser)
+colSums(1:3)
+# ls.str() in browser
+untrace(colSums)
 ```
 
+<br>
 
-## `trace()` intiate recover
+* `trace(colSums, browser)` =  `debug(colSums)`
+
+* equivalent to inserting `broswer()` in first line of function <br>
+ if we had the source code
+
+## navigating function steps
 
 <br>
 
-general idea, buggy on this example
+investigate 🧐 the function with `as.list()` + `body()` 
 
-<br>
+<brshort>
+
 
 ```{r, eval=FALSE, echo=TRUE}
-# specify recover to initiate at second step in function
-trace(g, recover, at = list(c(2)))
-
-# call function to initiate browser
-g("a")
-
-# cancel tracing
-untrace(g)
+x <- as.list(body(colSums))
+View(x)
 ```
+
+<brshort>
+
+. . .
+
+::: columns
+
+::: {.column width="40%"}
+
+![](img/colSums-body.PNG)
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="58%"}
+
+![](img/colSums-list.PNG)
+
+:::
+
+:::
+
+## identify function step
+
+![](img/colSums-list-investigate.PNG)
+
+## trace() at specified step
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="7,12"}
+# identify spot to insert code
+as.list(x[[3]][[1]])
+# equivalent notation
+as.list(x[[c(3, 1)]])
+
+# insert browser at step 3.1
+trace(colSums, browser, at = list(c(3, 1)))
+# execute function
+colSums(1:3)
+# ls.str() handy in browser
+# cancel tracing
+untrace(colSums)
+```
+
 
 
 # Special cases
@@ -619,8 +670,6 @@ If you want to dig deeper into a warning, you can convert them to errors.
 options(warn = 1) # print warning when it happens
 options(warn = 2) # converts all warnings to errors, allows you to use regular debugging tools
 ```
-
-
 
 ## Piped expressions
 

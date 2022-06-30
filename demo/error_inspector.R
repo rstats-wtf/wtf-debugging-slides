@@ -15,3 +15,5 @@ g <- function(x) f(x)
 g(factor("a,b"))
 
 
+
+options(error = recover)
