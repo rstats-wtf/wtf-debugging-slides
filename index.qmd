@@ -134,11 +134,9 @@ minimum `repr`oducible `ex`ample
 
 <brshort>
 
-::: center-x
-<https://reprex.tidyverse.org/>
-:::
 
 ::: footer
+<https://reprex.tidyverse.org/>
 *make a reprex..... please* by Sharla Gelfand (2021)
 
 slides: <https://make-a-reprex-please.netlify.app/#1>
@@ -185,7 +183,7 @@ Jenny Bryan (2020) *Object of type closure is not subsettable*
 <https://github.com/jennybc/debugging>
 :::
 
-## Review #1
+## Review 
 
 <br>
 
@@ -666,7 +664,7 @@ View(x)
 
 ::: columns
 ::: {.column width="40%"}
-![](img/colSums-body.PNG)
+![](img/colSums-body.png)
 :::
 
 ::: {.column width="2%"}
@@ -751,7 +749,7 @@ gives trimmed tracebacks when using pipes
 
 ## Rmarkdown {.smaller}
 
-<brshort> 
+<br> 
 
 #### Troubleshooting:
 
