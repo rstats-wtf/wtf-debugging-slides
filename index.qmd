@@ -96,9 +96,9 @@ knitr::include_graphics("img/debugging.jpg")
 
 Samantha Csik 2022 R-Ladies St. Louis Workshop *Teach Me How To Google*: [slides](https://samanthacsik.github.io/teach-me-how-to-google/slides/RLadiesSTL-2022-02-22.html#1), [recording](https://youtu.be/93WsFQUuxvA)
 
-## 2. Reset
+## 2. Reset {.smaller}
 
-<br>
+<brshort>
 
 ::: r-fit-text
 Have you tried turning it `OFF` and `ON` again?
@@ -106,7 +106,7 @@ Have you tried turning it `OFF` and `ON` again?
 
 . . .
 
-<br>
+<brshort>
 
 ::: r-fit-text
 Restart R, especially when things get weird.
@@ -114,13 +114,22 @@ Restart R, especially when things get weird.
 
 . . .
 
-<br>
+<brshort>
 
--   Session -\> Restart R, or
+
+Session -\> Restart R or 
 
 -   Ctrl + Shift + F10 (Windows),
 
 -   Cmd + Shift + 0 / Cmd + Shift + F10 (Mac)
+
+
+`Tools -> Global Options -> Workspace`
+
+![](img/workspace-options.PNG)
+
+:::footer
+:::
 
 ## 3. Reprex
 
@@ -128,15 +137,29 @@ Restart R, especially when things get weird.
 minimum `repr`oducible `ex`ample
 :::
 
-<brshort>
 
-![](img/reprex-logo.png){fig-align="center"}
+::: columns
+::: {.column width="45%"}
+![](img/reprex-logo.png)
+:::
+
+
+::: {.column width="55%"}
+<br>
+<br>
+<https://reprex.tidyverse.org/>
+:::
+:::
+
+
+
+
 
 <brshort>
 
 
 ::: footer
-<https://reprex.tidyverse.org/>
+
 *make a reprex..... please* by Sharla Gelfand (2021)
 
 slides: <https://make-a-reprex-please.netlify.app/#1>
