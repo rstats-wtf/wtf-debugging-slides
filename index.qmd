@@ -199,6 +199,14 @@ Troubleshooting strategies:
 
 3.  Reprex
 
+## But what if
+
+![](img/swat-bugs.gif)
+
+:::footer
+<https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
+:::
+
 # Moving on
 
 <br>
@@ -212,6 +220,7 @@ from troubleshooting to...
 ::: r-fit-text
 formal `debugging` techniques.
 :::
+
 
 ## Key concepts
 
@@ -360,7 +369,7 @@ used interactively in console, called for last error observed
 the trace back is also known as: <br> call stack, stack trace, & back trace
 :::
 
-## Richer trace back
+## Richer traceback
 
 <br>
 
@@ -373,7 +382,7 @@ rlang::last_error()
 
 ![](img/rlang_last-error.PNG)
 
-## Richer trace back
+## Richer traceback
 
 <br>
 
@@ -390,6 +399,21 @@ rlang::last_trace()
 <br>
 
 `options(error = rlang::entrace)` <br> could go in your `.Rprofile`
+
+## traceback vs rlang functions
+
+<br>
+
+Numbering and ordering differs between `traceback()` and rlang functions.
+
+<brshort>
+
+![](img/traceback-ordering.PNG)
+
+
+:::footer
+<https://adv-r.hadley.nz/debugging.html#call-stack-ordering>
+:::
 
 ## browser()
 
@@ -558,22 +582,49 @@ g("a")
 
 -   interactive debugger initiated a **single** time when `g()` is executed
 
+## options(error = recover)
+
+`r fontawesome::fa("check", fill = fa_fill)` we already discussed <br>
+`options(error = rlang::entrace)`<br>
+for a richer traceback on error 
+
+<br>
+
+🤠 `options(error = recover)` 
+
+1. displays an interactive prompt with the traceback
+
+2. allows you to select the frame for entering the debugger
+
+
+## recover example
+
+```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="2"}
+source("demo/my_functions.R")
+options(error = recover)
+g("a")
+options(error = NULL)
+```
+
+<br>
+
+![](img/options-error-recover.PNG)
+
 ## trace() overview
 
 `trace()` is a more flexible version of `debug()`
 
-* `trace(fun, browser)` =  `debug(fun)`
+-   `trace(fun, browser)` = `debug(fun)`
 
-* equivalent to inserting `broswer()` in first line of function 
-
-. . .
-
-you an also insert _any_ code at _any_ location in function
-
-* `trace(fun, browser, at = 2)` <br>inserts `browser()` at second step of `fun`
+-   equivalent to inserting `broswer()` in first line of function
 
 . . .
 
+you an also insert *any* code at *any* location in function
+
+-   `trace(fun, browser, at = 2)` <br>inserts `browser()` at second step of `fun`
+
+. . .
 
 `untrace(fun)` cancels the tracing
 
@@ -592,19 +643,17 @@ untrace(colSums)
 
 <br>
 
-* `trace(colSums, browser)` =  `debug(colSums)`
+-   `trace(colSums, browser)` = `debug(colSums)`
 
-* equivalent to inserting `broswer()` in first line of function <br>
- if we had the source code
+-   equivalent to inserting `broswer()` in first line of function <br> if we had the source code
 
 ## navigating function steps
 
 <br>
 
-investigate 🧐 the function with `as.list()` + `body()` 
+investigate 🧐 the function with `as.list()` + `body()`
 
 <brshort>
-
 
 ```{r, eval=FALSE, echo=TRUE}
 x <- as.list(body(colSums))
@@ -616,22 +665,16 @@ View(x)
 . . .
 
 ::: columns
-
 ::: {.column width="40%"}
-
 ![](img/colSums-body.PNG)
-
 :::
 
 ::: {.column width="2%"}
 :::
 
 ::: {.column width="58%"}
-
 ![](img/colSums-list.PNG)
-
 :::
-
 :::
 
 ## identify function step
@@ -657,30 +700,85 @@ colSums(1:3)
 untrace(colSums)
 ```
 
-
-
 # Special cases
 
 ## Warnings
 
-If you want to dig deeper into a warning, you can convert them to errors.
+<br>
 
-```{r}
-#options(warn = 0) # default, warnings deferred to end
-options(warn = 1) # print warning when it happens
-options(warn = 2) # converts all warnings to errors, allows you to use regular debugging tools
+If you want to dig deeper into a warning, you can convert them to errors to initiate
+debugging tools.
+
+<brshort>
+
+```{r, eval=FALSE, echo=TRUE}
+?options
+options(warn = 0) # default, stores warnings until top-level function returns
+options(warn = 1) # warnings are printed as they occur
+options(warn = 2) # upgrades warnings to errors
+
+
+# initiate recover on warning
+options(warn = 2, error = recover)
+# restore original settings
+options(warn = 0, error = NULL)
+
 ```
 
 ## Piped expressions
 
-## Rmarkdown
+<br>
 
-## stuff
+tracebacks can be verbose with pipes
 
-rmarkdown chunk option `error=TRUE`
+ . . .
+ 
+<br>
 
-`knitr::knit_exit()`
+```{r, eval=FALSE, echo=TRUE}
+options(error = rlang::entrace, rlang_backtrace_on_error = "branch")
+```
 
-more
+gives trimmed tracebacks when using pipes
 
-## Shiny
+. . .
+ 
+<br>
+
+* more [contributed answers on RStudio Community](https://community.rstudio.com/t/whats-currently-the-recommended-way-to-debug-pipe-chains/14724/3)
+
+* Matt Dray 2019 blog post [Fix leaky pipes in R](https://www.rostrum.blog/2019/04/07/fix-leaky-pipes/)
+
+## Rmarkdown {.smaller}
+
+<brshort> 
+
+#### Troubleshooting:
+
+1. rmarkdown chunk option `error = TRUE` enables knitting with errors
+
+2. insert `knitr::knit_exit()` and interactively work through .Rmd
+
+. . .
+
+<br>
+
+#### Debugging:
+
+1. Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
+
+2. WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
+
+## 
+
+::: r-fit-text 
+**Go forth, and learn from your bugs!**
+:::
+
+![](img/butterflies.gif){fig-align="center"}
+
+:::footer
+<https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
+:::
+
+
