@@ -483,6 +483,43 @@ Control execution:
 
 :::
 
+
+## Your turn, exercise 01
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+usethis::use_course("rstats-wtf/wtf-debugging")
+```
+
+<br>
+
+::: question
+Complete 01_exercise to practice debugging your own code.
+:::
+
+
+```{r}
+countdown(
+  minutes = 10,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  )
+```
+
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
+
 # Debugging in RStudio
 
 ## Editor breakpoints
@@ -565,6 +602,30 @@ g(factor("a,b"))
 ```
 
 The error inspector is only invoked <br> if `your` `code` is involved.
+
+
+## Your turn, exercise 02
+
+
+<br>
+
+::: question
+Complete 02_exercise to practice debugging a slightly different version of your
+own code, using features from the RStudio IDE.
+:::
+
+
+```{r}
+countdown(
+  minutes = 7
+  )
+```
+
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
+
 
 # Debugging others' code
 
@@ -721,6 +782,35 @@ colSums(1:3)
 # cancel tracing
 untrace(colSums)
 ```
+
+
+## Your turn, exercise 03
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+# install.packages("devtools")
+devtools::install_github("rstats-wtf/wtfdbg")
+```
+
+
+<br>
+
+::: question
+Complete 03_exercise to practice debugging others' code.
+:::
+
+
+```{r}
+countdown(
+  minutes = 10
+  )
+```
+
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
 
 # Special cases
 
