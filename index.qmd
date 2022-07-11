@@ -248,33 +248,29 @@ formal `debugging` techniques.
 
 <br>
 
-`location` where did the error occur
+`r fontawesome::fa("road", fill = "white")` traceback
+
+&nbsp;&nbsp; `location` where did the error occur
 
 <br>
 
-`context` why did the error occur
+`r fontawesome::fa("bug", fill = "white")` interactive debugger
+
+
+&nbsp;&nbsp; `context` why did the error occur
 
 <br>
 
-`non-interactive` vs `interactive`
-
-<br>
-
-debugging `your code` vs `their code`
+`r fontawesome::fa("magnifying-glass", fill = "white")` your code &nbsp; vs &nbsp; `r fontawesome::fa("hat-wizard", fill = "white")` their code
 
 ::: notes
 interactive debugging: pause the execution of a function and launch environment where you can interactively explore what's happening
 :::
 
-## Methods
+## Debugging tools
 
-| Function                          | Use                                              |
-|------------------------------|------------------------------------------|
-| `print()` / `cat()` / `message()` | output diagnostic information in code            |
-| `traceback()`                     | locate error                                     |
-| `browser()`                       | open interactive debugger                        |
-| `debug()` / `debugonce()`         | automatically open debugger when function called |
-| `trace()`                         | start debugger at specific location in function  |
+![](img/debugging_tools.svg)
+
 
 ## Sourcing
 
@@ -308,7 +304,7 @@ g <- function(x) f(x)
 g("a")
 ```
 
-# Debugging your own code
+# Debugging your code
 
 ## print()
 
@@ -484,6 +480,10 @@ Control execution:
 :::
 
 
+## Debugging your code
+
+![](img/debugging_yours.svg)
+
 ## Your turn, exercise 01
 
 <br>
@@ -519,6 +519,8 @@ countdown(
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
+
+
 
 # Debugging in RStudio
 
@@ -604,6 +606,10 @@ g(factor("a,b"))
 The error inspector is only invoked <br> if `your` `code` is involved.
 
 
+## Debugging in the RStudio IDE
+
+![](img/debugging_ide.svg)
+
 ## Your turn, exercise 02
 
 
@@ -627,7 +633,7 @@ countdown(
 :::
 
 
-# Debugging others' code
+# Debugging their code
 
 ## debug()
 
@@ -784,6 +790,10 @@ untrace(colSums)
 ```
 
 
+## Debugging their code
+
+![](img/debugging_theirs.svg)
+
 ## Your turn, exercise 03
 
 <br>
@@ -880,6 +890,14 @@ gives trimmed tracebacks when using pipes
 1. Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
 
 2. WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
+
+
+## Debugging special cases
+
+
+![](img/debugging_special.svg)
+
+
 
 ## 
 
