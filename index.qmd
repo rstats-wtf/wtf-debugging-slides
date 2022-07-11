@@ -271,6 +271,11 @@ interactive debugging: pause the execution of a function and launch environment 
 
 ![](img/debugging_tools.svg)
 
+::: notes
+source for image in google slides at
+
+https://docs.google.com/presentation/d/14mqGirw4TnblqSFY0Tk30YrxkAwIrz1xo4nMIwgqk_o/edit?usp=sharing
+:::
 
 ## Sourcing
 
