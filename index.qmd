@@ -45,9 +45,7 @@ Pretty recent?
 
 `r fontawesome::fa("check", fill = fa_fill)` Ready to build packages?
 
-     `devtools::has_devel()`<br>
-     _Your system is ready to build packages!_
-
+     `devtools::has_devel()`<br>      *Your system is ready to build packages!*
 
 ## Additional resources {.smaller}
 
@@ -544,6 +542,16 @@ To activate, either
 
 -   `debugSource(`"demo/my_functions.R"`)`
 
+## Debugging console
+
+![](img/cheatsheet-debug-console.PNG)
+
+::: footer
+RStudio IDE cheatsheet 
+
+<https://www.rstudio.com/resources/cheatsheets/>
+:::
+
 ## IDE on error
 
 Automatically invoke actions on error.
@@ -568,9 +576,7 @@ Automatically invoke actions on error.
 
 ![](img/IDE_break-in-code.PNG)
 
-## Debugging console
 
-![](img/cheatsheet-debug-console.PNG)
 
 ## Error inspector
 
@@ -897,7 +903,7 @@ gives trimmed tracebacks when using pipes
 <br>
 
 | Link                                                       | Description                                   |
-|-------------------------------------------------------|-----------------|
+|------------------------------------------------------|------------------|
 | [github.com/search](https://github.com/search)             | All of GitHub! Can do advanced searches, too. |
 | [github.com/cran](https://github.com/cran)                 | CRAN packages                                 |
 | [github.com/wch/r-source](https://github.com/wch/r-source) | R core                                        |
@@ -957,7 +963,7 @@ countdown(
 <br>
 
 | Location                                                               | Item                        |
-|----------------------------------------------------|--------------------|
+|---------------------------------------------------|---------------------|
 | [src/main](https://github.com/wch/r-source/tree/trunk/src/main)        | base R                      |
 | [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R |
 | [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)    | R manuals & documentation   |

@@ -3,8 +3,6 @@ colSums(1:3)
 
 
 
-
-
 trace(colSums, browser)
 colSums(1:3)
 # ls.str() in browser
