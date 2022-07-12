@@ -44,6 +44,12 @@ Pretty recent?
 
      I'm on 2022.02.3+492
 
+`r fontawesome::fa("check", fill = fa_fill)` Ready to build packages?
+
+     `devtools::has_devel()`<br>
+     _Your system is ready to build packages!_
+
+
 ## Additional resources {.smaller}
 
 -   WTF Ch 11 *Debugging R code* <br> <https://rstats.wtf/debugging-r-code.html>
@@ -569,9 +575,7 @@ Automatically invoke actions on error.
 
 ## Error inspector
 
-
 ::: columns
-
 ::: {.column width="58%"}
 ```{r, echo=TRUE, eval=FALSE}
 # IDE Error Inspector not triggered
@@ -596,20 +600,17 @@ g(factor("a,b"))
 ::: {.column width="5%"}
 :::
 
-::: {.column width="35%" }
-<br>
-The error inspector is only invoked  if `your` `code` is involved.
+::: {.column width="35%"}
+<br> The error inspector is only invoked if `your` `code` is involved.
 :::
 :::
-
-
 
 ::: footer
-To have RStudio invoke the debugger on any error, 
+To have RStudio invoke the debugger on any error,
 
-`Tools -> Global Options` 
+`Tools -> Global Options`
 
-_uncheck_ `Use debug error handler only when my code contains errors.`
+*uncheck* `Use debug error handler only when my code contains errors.`
 :::
 
 ## Debugging in the RStudio IDE
@@ -890,20 +891,19 @@ gives trimmed tracebacks when using pipes
 
 # Read the source
 
-## {background-image="img/read-the-source-luke.PNG"}
-
+##  {background-image="img/read-the-source-luke.PNG"}
 
 ## (almost) all source on GitHub
 
 <br>
 
-| Link                                              | Description |
-|---------------------------------------------------|-------------|
-| [github.com/search](https://github.com/search)  | All of GitHub! Can do advanced searches, too.      |
-| [github.com/cran](https://github.com/cran)         | CRAN packages       |
-| [github.com/wch/r-source](https://github.com/wch/r-source) | R core     |
+| Link                                                       | Description                                   |
+|-------------------------------------------------------|-----------------|
+| [github.com/search](https://github.com/search)             | All of GitHub! Can do advanced searches, too. |
+| [github.com/cran](https://github.com/cran)                 | CRAN packages                                 |
+| [github.com/wch/r-source](https://github.com/wch/r-source) | R core                                        |
 
-: {tbl-colwidths="[50,50]"}
+: {tbl-colwidths="\[50,50\]"}
 
 <br>
 
@@ -921,33 +921,23 @@ gives trimmed tracebacks when using pipes
 
 ## [github.com/cran](https://github.com/cran)
 
-
 ![](img/package-structure.PNG)
-
 
 ::: columns
 ::: {.column width="25%"}
 In R console
 :::
 
-
-::: {.column width="75%" }
+::: {.column width="75%"}
 `pkg::fnc` to see exported functions
 
 `pkg:::fnc` to see non-exported functions
 :::
-
-
 :::
-
-
-
 
 ::: footer
-From _Package development with devtools_ RStudio cheatsheet <br>
-<https://www.rstudio.com/resources/cheatsheets/>
+From *Package development with devtools* RStudio cheatsheet <br> <https://www.rstudio.com/resources/cheatsheets/>
 :::
-
 
 ## Your turn, investigating a CRAN package
 
@@ -963,30 +953,27 @@ countdown(
   )
 ```
 
-
 ## [github.com/wch/r-source](https://github.com/wch/r-source)
 
 <br>
 
-| Location                              | Item |
-|-----------------------------------|-------------|
-| [src/main](https://github.com/wch/r-source/tree/trunk/src/main) | base R     |
-| [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R     |
-| [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)         | R manuals & documentation        |
-
-
+| Location                                                               | Item                        |
+|----------------------------------------------------|--------------------|
+| [src/main](https://github.com/wch/r-source/tree/trunk/src/main)        | base R                      |
+| [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R |
+| [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)    | R manuals & documentation   |
 
 ## Your turn, investigating source code
 
 <br>
 
 ::: question
-1. When was the trimws() function added to base R?
+1.  When was the trimws() function added to base R?
 
-2. How does is.na() work?
+2.  How does is.na() work?
 :::
 
-_Hints on next slides._
+*Hints on next slides.*
 
 ```{r}
 countdown(
@@ -996,21 +983,17 @@ countdown(
 
 ## Investigating source code hints
 
-
 ::: question
-1. When was the trimws() function added to base R?
+1.  When was the trimws() function added to base R?
 :::
-
 
 Try restricting search to only commit messages in [github.com/wch/r-source](https://github.com/wch/r-source/).
 
 ## Investigating source code hints
 
-
 ::: question
-2. How does is.na() work?
+2.  How does is.na() work?
 :::
-
 
 1.  Look at the function.
 
@@ -1018,15 +1001,14 @@ Try restricting search to only commit messages in [github.com/wch/r-source](http
 is.na
 ```
 
+2.  Look in [github.com/wch/r-source/src/main/names.c](https://github.com/wch/r-source/blob/trunk/src/main/names.c) to find the name of the [internal function](https://github.com/wch/r-source/blob/4a73802c7d6de8670cfe8b9301232cbf2b63a201/src/main/names.c#L615).
+    Or in GitHub search bar: `is.na filename:names.c`.
 
-2.  Look in [github.com/wch/r-source/src/main/names.c](https://github.com/wch/r-source/blob/trunk/src/main/names.c) to find the name of the [internal function](https://github.com/wch/r-source/blob/4a73802c7d6de8670cfe8b9301232cbf2b63a201/src/main/names.c#L615). Or in GitHub search bar: `is.na filename:names.c`.
-
-3. In GitHub search bar: `"do_isna" language:c`
+3.  In GitHub search bar: `"do_isna" language:c`
 
 ## Go forth, <br> and learn from your bugs!
 
 ::: columns
-
 ::: {.column width="58%"}
 ![](img/butterflies.gif){fig-align="center"}
 :::
@@ -1034,11 +1016,8 @@ is.na
 ::: {.column width="2%"}
 :::
 
-
-::: {.column width="40%" }
-
-<br>
-<br>
+::: {.column width="40%"}
+<br> <br>
 
 Troubleshoot
 
@@ -1046,13 +1025,7 @@ Debug
 
 Read the source
 :::
-
-
 :::
-
-
-
-
 
 ::: footer
 <https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
