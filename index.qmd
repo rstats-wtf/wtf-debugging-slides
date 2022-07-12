@@ -28,7 +28,6 @@ fa_fill <- "#C7B41D"
 
 ## Licensing
 
-
 <br> Workshop materials have been adapted from the 2020 RStudio [What They Forgot To Teach You About R](https://rstats-wtf.github.io/wtf-2020-rsc/) Workshop.
 <br> <br> This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
 
@@ -117,19 +116,17 @@ Restart R, especially when things get weird.
 
 <brshort>
 
-
-Session -\> Restart R or 
+Session -\> Restart R or
 
 -   Ctrl + Shift + F10 (Windows),
 
 -   Cmd + Shift + 0 / Cmd + Shift + F10 (Mac)
 
-
 `Tools -> Global Options -> Workspace`
 
 ![](img/workspace-options.PNG)
 
-:::footer
+::: footer
 :::
 
 ## 3. Reprex
@@ -138,29 +135,19 @@ Session -\> Restart R or
 minimum `repr`oducible `ex`ample
 :::
 
-
 ::: columns
 ::: {.column width="45%"}
 ![](img/reprex-logo.png)
 :::
 
-
 ::: {.column width="55%"}
-<br>
-<br>
-<https://reprex.tidyverse.org/>
+<br> <br> <https://reprex.tidyverse.org/>
 :::
 :::
-
-
-
-
 
 <brshort>
 
-
 ::: footer
-
 *make a reprex..... please* by Sharla Gelfand (2021)
 
 slides: <https://make-a-reprex-please.netlify.app/#1>
@@ -207,7 +194,7 @@ Jenny Bryan (2020) *Object of type closure is not subsettable*
 <https://github.com/jennybc/debugging>
 :::
 
-## Review 
+## Review
 
 <br>
 
@@ -225,7 +212,7 @@ Troubleshooting strategies:
 
 ![](img/swat-bugs.gif)
 
-:::footer
+::: footer
 <https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
 :::
 
@@ -243,25 +230,23 @@ from troubleshooting to...
 formal `debugging` techniques.
 :::
 
-
 ## Key concepts
 
 <br>
 
 `r fontawesome::fa("road", fill = "white")` traceback
 
-&nbsp;&nbsp; `location` where did the error occur
+   `location` where did the error occur
 
 <br>
 
 `r fontawesome::fa("bug", fill = "white")` interactive debugger
 
-
-&nbsp;&nbsp; `context` why did the error occur
+   `context` why did the error occur
 
 <br>
 
-`r fontawesome::fa("magnifying-glass", fill = "white")` your code &nbsp; vs &nbsp; `r fontawesome::fa("hat-wizard", fill = "white")` their code
+`r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   `r fontawesome::fa("hat-wizard", fill = "white")` their code
 
 ::: notes
 interactive debugging: pause the execution of a function and launch environment where you can interactively explore what's happening
@@ -274,7 +259,8 @@ interactive debugging: pause the execution of a function and launch environment 
 ::: notes
 source for image in google slides at
 
-https://docs.google.com/presentation/d/14mqGirw4TnblqSFY0Tk30YrxkAwIrz1xo4nMIwgqk_o/edit?usp=sharing
+https://docs.google.com/presentation/d/14mqGirw4TnblqSFY0Tk30YrxkAwIrz1xo4nMIwgqk_o/edit?u
+sp=sharing
 :::
 
 ## Sourcing
@@ -433,8 +419,7 @@ Numbering and ordering differs between `traceback()` and rlang functions.
 
 ![](img/traceback-ordering.PNG)
 
-
-:::footer
+::: footer
 <https://adv-r.hadley.nz/debugging.html#call-stack-ordering>
 :::
 
@@ -484,7 +469,6 @@ Control execution:
 
 :::
 
-
 ## Debugging your code
 
 ![](img/debugging_yours.svg)
@@ -503,7 +487,6 @@ usethis::use_course("rstats-wtf/wtf-debugging")
 Complete 01_exercise to practice debugging your own code.
 :::
 
-
 ```{r}
 countdown(
   minutes = 10,
@@ -520,12 +503,9 @@ countdown(
   )
 ```
 
-
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
-
-
 
 # Debugging in RStudio
 
@@ -589,6 +569,10 @@ Automatically invoke actions on error.
 
 ## Error inspector
 
+
+::: columns
+
+::: {.column width="58%"}
 ```{r, echo=TRUE, eval=FALSE}
 # IDE Error Inspector not triggered
 f <- function(x) x + 1
@@ -607,9 +591,26 @@ g <- function(x) f(x)
 g(factor("a,b"))
 
 ```
+:::
 
-The error inspector is only invoked <br> if `your` `code` is involved.
+::: {.column width="5%"}
+:::
 
+::: {.column width="35%" }
+<br>
+The error inspector is only invoked  if `your` `code` is involved.
+:::
+:::
+
+
+
+::: footer
+To have RStudio invoke the debugger on any error, 
+
+`Tools -> Global Options` 
+
+_uncheck_ `Use debug error handler only when my code contains errors.`
+:::
 
 ## Debugging in the RStudio IDE
 
@@ -617,14 +618,11 @@ The error inspector is only invoked <br> if `your` `code` is involved.
 
 ## Your turn, exercise 02
 
-
 <br>
 
 ::: question
-Complete 02_exercise to practice debugging a slightly different version of your
-own code, using features from the RStudio IDE.
+Complete 02_exercise to practice debugging a slightly different version of your own code, using features from the RStudio IDE.
 :::
-
 
 ```{r}
 countdown(
@@ -632,11 +630,9 @@ countdown(
   )
 ```
 
-
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
-
 
 # Debugging their code
 
@@ -678,18 +674,15 @@ g("a")
 
 ## options(error = recover)
 
-`r fontawesome::fa("check", fill = fa_fill)` we already discussed <br>
-`options(error = rlang::entrace)`<br>
-for a richer traceback on error 
+`r fontawesome::fa("check", fill = fa_fill)` we already discussed <br> `options(error = rlang::entrace)`<br> for a richer traceback on error
 
 <br>
 
-🤠 `options(error = recover)` 
+🤠 `options(error = recover)`
 
-1. displays an interactive prompt with the traceback
+1.  displays an interactive prompt with the traceback
 
-2. allows you to select the frame for entering the debugger
-
+2.  allows you to select the frame for entering the debugger
 
 ## recover example
 
@@ -794,7 +787,6 @@ colSums(1:3)
 untrace(colSums)
 ```
 
-
 ## Debugging their code
 
 ![](img/debugging_theirs.svg)
@@ -808,20 +800,17 @@ untrace(colSums)
 devtools::install_github("rstats-wtf/wtfdbg")
 ```
 
-
 <br>
 
 ::: question
 Complete 03_exercise to practice debugging others' code.
 :::
 
-
 ```{r}
 countdown(
   minutes = 10
   )
 ```
-
 
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
@@ -833,8 +822,7 @@ countdown(
 
 <br>
 
-If you want to dig deeper into a warning, you can convert them to errors to initiate
-debugging tools.
+If you want to dig deeper into a warning, you can convert them to errors to initiate debugging tools.
 
 <brshort>
 
@@ -858,8 +846,8 @@ options(warn = 0, error = NULL)
 
 tracebacks can be verbose with pipes
 
- . . .
- 
+. . .
+
 <br>
 
 ```{r, eval=FALSE, echo=TRUE}
@@ -869,22 +857,22 @@ options(error = rlang::entrace, rlang_backtrace_on_error = "branch")
 gives trimmed tracebacks when using pipes
 
 . . .
- 
+
 <br>
 
-* more [contributed answers on RStudio Community](https://community.rstudio.com/t/whats-currently-the-recommended-way-to-debug-pipe-chains/14724/3)
+-   more [contributed answers on RStudio Community](https://community.rstudio.com/t/whats-currently-the-recommended-way-to-debug-pipe-chains/14724/3)
 
-* Matt Dray 2019 blog post [Fix leaky pipes in R](https://www.rostrum.blog/2019/04/07/fix-leaky-pipes/)
+-   Matt Dray 2019 blog post [Fix leaky pipes in R](https://www.rostrum.blog/2019/04/07/fix-leaky-pipes/)
 
 ## Rmarkdown {.smaller}
 
-<br> 
+<br>
 
 #### Troubleshooting:
 
-1. rmarkdown chunk option `error = TRUE` enables knitting with errors
+1.  rmarkdown chunk option `error = TRUE` enables knitting with errors
 
-2. insert `knitr::knit_exit()` and interactively work through .Rmd
+2.  insert `knitr::knit_exit()` and interactively work through .Rmd
 
 . . .
 
@@ -892,28 +880,180 @@ gives trimmed tracebacks when using pipes
 
 #### Debugging:
 
-1. Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
+1.  Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
 
-2. WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
-
+2.  WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
 
 ## Debugging special cases
 
-
 ![](img/debugging_special.svg)
 
+# Read the source
+
+## {background-image="img/read-the-source-luke.PNG"}
 
 
-## 
+## (almost) all source on GitHub
 
-::: r-fit-text 
-**Go forth, and learn from your bugs!**
+<br>
+
+| Link                                              | Description |
+|---------------------------------------------------|-------------|
+| [github.com/search](https://github.com/search)  | All of GitHub! Can do advanced searches, too.      |
+| [github.com/cran](https://github.com/cran)         | CRAN packages       |
+| [github.com/wch/r-source](https://github.com/wch/r-source) | R core     |
+
+: {tbl-colwidths="[50,50]"}
+
+<br>
+
+[About searching on GitHub](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/about-searching-on-github)
+
+## google: cran pkgname
+
+<br>
+
+![](img/usethis-cran-markup.png)
+
+::: footer
+<https://cran.r-project.org/web/packages/usethis/index.html>
 :::
 
-![](img/butterflies.gif){fig-align="center"}
+## [github.com/cran](https://github.com/cran)
 
-:::footer
+
+![](img/package-structure.PNG)
+
+
+::: columns
+::: {.column width="25%"}
+In R console
+:::
+
+
+::: {.column width="75%" }
+`pkg::fnc` to see exported functions
+
+`pkg:::fnc` to see non-exported functions
+:::
+
+
+:::
+
+
+
+
+::: footer
+From _Package development with devtools_ RStudio cheatsheet <br>
+<https://www.rstudio.com/resources/cheatsheets/>
+:::
+
+
+## Your turn, investigating a CRAN package
+
+<br>
+
+::: question
+At a high level, <br> how does readr::read_lines() work?
+:::
+
+```{r}
+countdown(
+  minutes = 3
+  )
+```
+
+
+## [github.com/wch/r-source](https://github.com/wch/r-source)
+
+<br>
+
+| Location                              | Item |
+|-----------------------------------|-------------|
+| [src/main](https://github.com/wch/r-source/tree/trunk/src/main) | base R     |
+| [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R     |
+| [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)         | R manuals & documentation        |
+
+
+
+## Your turn, investigating source code
+
+<br>
+
+::: question
+1. When was the trimws() function added to base R?
+
+2. How does is.na() work?
+:::
+
+_Hints on next slides._
+
+```{r}
+countdown(
+  minutes = 5
+  )
+```
+
+## Investigating source code hints
+
+
+::: question
+1. When was the trimws() function added to base R?
+:::
+
+
+Try restricting search to only commit messages in [github.com/wch/r-source](https://github.com/wch/r-source/).
+
+## Investigating source code hints
+
+
+::: question
+2. How does is.na() work?
+:::
+
+
+1.  Look at the function.
+
+```{r, eval=TRUE, echo=TRUE}
+is.na
+```
+
+
+2.  Look in [github.com/wch/r-source/src/main/names.c](https://github.com/wch/r-source/blob/trunk/src/main/names.c) to find the name of the [internal function](https://github.com/wch/r-source/blob/4a73802c7d6de8670cfe8b9301232cbf2b63a201/src/main/names.c#L615). Or in GitHub search bar: `is.na filename:names.c`.
+
+3. In GitHub search bar: `"do_isna" language:c`
+
+## Go forth, <br> and learn from your bugs!
+
+::: columns
+
+::: {.column width="58%"}
+![](img/butterflies.gif){fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+
+::: {.column width="40%" }
+
+<br>
+<br>
+
+Troubleshoot
+
+Debug
+
+Read the source
+:::
+
+
+:::
+
+
+
+
+
+::: footer
 <https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
 :::
-
-

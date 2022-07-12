@@ -604,7 +604,7 @@
 
 <img data-src="img/debugging_tools.svg" class="r-stretch"><aside class="notes">
 <p>source for image in google slides at</p>
-<p>https://docs.google.com/presentation/d/14mqGirw4TnblqSFY0Tk30YrxkAwIrz1xo4nMIwgqk_o/edit?usp=sharing</p>
+<p>https://docs.google.com/presentation/d/14mqGirw4TnblqSFY0Tk30YrxkAwIrz1xo4nMIwgqk_o/edit?u sp=sharing</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -870,7 +870,7 @@ x = a </code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62cb94c6" style="right:0;bottom:0;font-size:2em;" data-audio="true" data-warnwhen="0">
+<div class="countdown" id="timer_62cccc78" style="right:0;bottom:0;font-size:2em;" data-audio="true" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -934,6 +934,8 @@ x = a </code></pre>
 <img data-src="img/cheatsheet-debug-console.PNG" class="r-stretch"></section>
 <section id="error-inspector" class="slide level2">
 <h2>Error inspector</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># IDE Error Inspector not triggered</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span></span>
@@ -951,7 +953,17 @@ x = a </code></pre>
 <span id="cb15-14"><a href="#cb15-14"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">f</span>(x)</span>
 <span id="cb15-15"><a href="#cb15-15"></a><span class="fu">g</span>(<span class="fu">factor</span>(<span class="st">"a,b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The error inspector is only invoked <br> if <code>your</code> <code>code</code> is involved.</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:35%;">
+<p><br> The error inspector is only invoked if <code>your</code> <code>code</code> is involved.</p>
+</div>
+</div>
+<div class="footer">
+<p>To have RStudio invoke the debugger on any error,</p>
+<p><code>Tools -&gt; Global Options</code></p>
+<p><em>uncheck</em> <code>Use debug error handler only when my code contains errors.</code></p>
+</div>
 </section>
 <section id="debugging-in-the-rstudio-ide" class="slide level2">
 <h2>Debugging in the RStudio IDE</h2>
@@ -965,7 +977,7 @@ x = a </code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62cb93ae" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_62cccbd6" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1128,7 +1140,7 @@ x = a </code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62cb93c9" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_62ccccdf" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1199,16 +1211,175 @@ x = a </code></pre>
 <section id="debugging-special-cases" class="slide level2">
 <h2>Debugging special cases</h2>
 
-<img data-src="img/debugging_special.svg" class="r-stretch"></section>
-<section id="section-1" class="slide level2">
+<img data-src="img/debugging_special.svg" class="r-stretch"></section></section>
+<section>
+<section id="read-the-source" class="title-slide slide level1 center">
+<h1>Read the source</h1>
+
+</section>
+<section id="section-1" class="slide level2" data-background-image="img/read-the-source-luke.PNG">
 <h2></h2>
-<div class="r-fit-text">
-<p><strong>Go forth, and learn from your bugs!</strong></p>
+</section>
+<section id="almost-all-source-on-github" class="slide level2">
+<h2>(almost) all source on GitHub</h2>
+<p><br></p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Link</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/search">github.com/search</a></td>
+<td>All of GitHub! Can do advanced searches, too.</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/cran">github.com/cran</a></td>
+<td>CRAN packages</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/wch/r-source">github.com/wch/r-source</a></td>
+<td>R core</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><a href="https://docs.github.com/en/search-github/getting-started-with-searching-on-github/about-searching-on-github">About searching on GitHub</a></p>
+</section>
+<section id="google-cran-pkgname" class="slide level2">
+<h2>google: cran pkgname</h2>
+<p><br></p>
+
+<img data-src="img/usethis-cran-markup.png" class="r-stretch"><div class="footer">
+<p><a href="https://cran.r-project.org/web/packages/usethis/index.html" class="uri">https://cran.r-project.org/web/packages/usethis/index.html</a></p>
 </div>
+</section>
+<section id="github.comcran" class="slide level2">
+<h2><a href="https://github.com/cran">github.com/cran</a></h2>
+
+<img data-src="img/package-structure.PNG" class="r-stretch"><div class="columns">
+<div class="column" style="width:25%;">
+<p>In R console</p>
+</div><div class="column" style="width:75%;">
+<p><code>pkg::fnc</code> to see exported functions</p>
+<p><code>pkg:::fnc</code> to see non-exported functions</p>
+</div>
+</div>
+<div class="footer">
+<p>From <em>Package development with devtools</em> RStudio cheatsheet <br> <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></p>
+</div>
+</section>
+<section id="your-turn-investigating-a-cran-package" class="slide level2">
+<h2>Your turn, investigating a CRAN package</h2>
+<p><br></p>
+<div class="question">
+<p>At a high level, <br> how does readr::read_lines() work?</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_62cccdb3" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="github.comwchr-source" class="slide level2">
+<h2><a href="https://github.com/wch/r-source">github.com/wch/r-source</a></h2>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Item</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/wch/r-source/tree/trunk/src/main">src/main</a></td>
+<td>base R</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/wch/r-source/tree/trunk/src/library">src/library/</a></td>
+<td>packages included in base R</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/wch/r-source/tree/trunk/doc/manual">doc/manual</a></td>
+<td>R manuals &amp; documentation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="your-turn-investigating-source-code" class="slide level2">
+<h2>Your turn, investigating source code</h2>
+<p><br></p>
+<div class="question">
+<ol type="1">
+<li><p>When was the trimws() function added to base R?</p></li>
+<li><p>How does is.na() work?</p></li>
+</ol>
+</div>
+<p><em>Hints on next slides.</em></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_62ccceef" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="investigating-source-code-hints" class="slide level2">
+<h2>Investigating source code hints</h2>
+<div class="question">
+<ol type="1">
+<li>When was the trimws() function added to base R?</li>
+</ol>
+</div>
+<p>Try restricting search to only commit messages in <a href="https://github.com/wch/r-source/">github.com/wch/r-source</a>.</p>
+</section>
+<section id="investigating-source-code-hints-1" class="slide level2">
+<h2>Investigating source code hints</h2>
+<div class="question">
+<ol start="2" type="1">
+<li>How does is.na() work?</li>
+</ol>
+</div>
+<ol type="1">
+<li>Look at the function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>is.na</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x)  .Primitive("is.na")</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Look in <a href="https://github.com/wch/r-source/blob/trunk/src/main/names.c">github.com/wch/r-source/src/main/names.c</a> to find the name of the <a href="https://github.com/wch/r-source/blob/4a73802c7d6de8670cfe8b9301232cbf2b63a201/src/main/names.c#L615">internal function</a>. Or in GitHub search bar: <code>is.na filename:names.c</code>.</p></li>
+<li><p>In GitHub search bar: <code>"do_isna" language:c</code></p></li>
+</ol>
+</section>
+<section id="go-forth-and-learn-from-your-bugs" class="slide level2">
+<h2>Go forth, <br> and learn from your bugs!</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/butterflies.gif"></p>
 </figure>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:40%;">
+<p><br> <br></p>
+<p>Troubleshoot</p>
+<p>Debug</p>
+<p>Read the source</p>
+</div>
 </div>
 <div class="footer">
 <p><a href="https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z" class="uri">https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z</a></p>
