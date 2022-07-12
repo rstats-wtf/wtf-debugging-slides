@@ -28,7 +28,6 @@ fa_fill <- "#C7B41D"
 
 ## Licensing
 
-<br> Workshop materials have been adapted from the 2020 RStudio [What They Forgot To Teach You About R](https://rstats-wtf.github.io/wtf-2020-rsc/) Workshop.
 <br> <br> This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
 
 ## Checklist
@@ -72,8 +71,6 @@ Pretty recent?
 ## 
 
 ```{r, out.width="20%"}
-#| fig.cap: > 
-#|   Artwork by [\@allison_horst](https://twitter.com/allison_horst).
 #| fig.alt: > 
 #|   A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The 
 #|   progression goes from (1) “I got this” - looking determined and optimistic; (2) “Huh. Really thought that was it.” - looking a bit
@@ -85,6 +82,8 @@ knitr::include_graphics("img/debugging.jpg")
 ```
 
 ::: footer
+Artwork by [\@allison_horst](https://twitter.com/allison_horst).
+
 <https://github.com/allisonhorst/stats-illustrations>
 :::
 
