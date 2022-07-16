@@ -37,7 +37,7 @@ fa_fill <- "#C7B41D"
 `r fontawesome::fa("check", fill = fa_fill)` R installed?
 Pretty recent?
 
-     Recommended \>= 4.2.0
+     Recommended R ≥ 4.2.0
 
 `r fontawesome::fa("check", fill = fa_fill)` RStudio installed?
 
