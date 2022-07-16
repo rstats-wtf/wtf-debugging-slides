@@ -92,6 +92,10 @@ $h3-font-size: 1.15em !default;
     text-align: center;
 }
 
+.important {
+  color: $link-color;
+}
+
 .black-code {
   color: #000000;
   font-family: $font-family-monospace;
