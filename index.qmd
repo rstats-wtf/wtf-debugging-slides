@@ -37,7 +37,7 @@ fa_fill <- "#C7B41D"
 `r fontawesome::fa("check", fill = fa_fill)` R installed?
 Pretty recent?
 
-     Current version 4.2.0
+     Recommended \>= 4.2.0
 
 `r fontawesome::fa("check", fill = fa_fill)` RStudio installed?
 
@@ -268,7 +268,6 @@ sp=sharing
 
 ## 
 
-
 ::: r-fit-text
 This is a lot.
 :::
@@ -281,7 +280,8 @@ These tools achieve similar objectives slightly differently.
 
 <br>
 
-People don't generally use _all_ of these tools at once. They pick and choose the ones they like.
+People don't generally use *all* of these tools at once.
+They pick and choose the ones they like.
 
 ## Sourcing
 
@@ -300,8 +300,6 @@ for the best debugging experience 😎
 <br>
 
 ![](img/source-marked.jpg)
-
-
 
 ## Set up
 
@@ -507,17 +505,14 @@ usethis::use_course("rstats-wtf/wtf-debugging")
 Complete 01_exercise to practice debugging your own code.
 :::
 
-
-
-::: {.small}
+::: small
 Check out the `README.md` for some getting started tips!
 
-* `01_debugging_spartan.R` (directions to explore without suggested code)
+-   `01_debugging_spartan.R` (directions to explore without suggested code)
 
-* `01_debugging_comfy.R` (directions to explore with suggested code)
+-   `01_debugging_comfy.R` (directions to explore with suggested code)
 
-* `01_debugging_solution.R` (directions to explore with code solutions)
-
+-   `01_debugging_solution.R` (directions to explore with code solutions)
 :::
 
 ```{r}
@@ -591,9 +586,7 @@ Automatically invoke actions on error.
 ![](img/IDE_debug_menu_crop.png)
 :::
 
-
 ::: {.column .fragment width="55%"}
-
 New set up for demonstration.
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
@@ -604,19 +597,13 @@ g("a,b")
 
 <br>
 
-::: {.fragment}
-
+::: fragment
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 g(factor("a,b"))
 ```
 :::
-
 :::
 :::
-
-
-
-
 
 ## IDE message only
 
@@ -763,13 +750,11 @@ options(error = NULL)
 
 ## trace() overview
 
-
 `trace(what = fun, tracer = browser)` <br> is equivalent to
 
--  inserting `broswer()` in first line of function
+-   inserting `broswer()` in first line of function
 
--  `debug(fun)`
-
+-   `debug(fun)`
 
 . . .
 
@@ -781,7 +766,6 @@ you an also insert *any* code at *any* location in function
 
 `untrace(fun)` cancels the tracing
 
-
 ::: notes
 `trace()` is a more flexible version of `debug()`
 
@@ -789,6 +773,7 @@ you an also insert *any* code at *any* location in function
 :::
 
 ## trace() without a specified step
+
 <br>
 
 ```{r, eval=FALSE, echo=TRUE,`code-line-numbers`="1,4"}
@@ -800,12 +785,11 @@ untrace(colSums)
 
 <br>
 
-`trace(what = colSums, tracer = browser)` <br>  is equivalent to
+`trace(what = colSums, tracer = browser)` <br> is equivalent to
 
 -   inserting `broswer()` in first line of `colSums` <br> if we had the source code
 
 -   `debug(colSums)`
-
 
 ## navigating function steps
 
@@ -888,7 +872,6 @@ countdown(
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
-
 
 ## Pick your favorite
 
@@ -975,7 +958,7 @@ gives trimmed tracebacks when using pipes
 <br>
 
 | Link                                                       | Description                                   |
-|-----------------------------------------------------|-------------------|
+|----------------------------------------|--------------------------------|
 | [github.com/search](https://github.com/search)             | All of GitHub! Can do advanced searches, too. |
 | [github.com/cran](https://github.com/cran)                 | CRAN packages                                 |
 | [github.com/wch/r-source](https://github.com/wch/r-source) | R core                                        |
@@ -1035,7 +1018,7 @@ countdown(
 <br>
 
 | Location                                                               | Item                        |
-|--------------------------------------------------|----------------------|
+|---------------------------------------------------|---------------------|
 | [src/main](https://github.com/wch/r-source/tree/trunk/src/main)        | base R                      |
 | [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R |
 | [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)    | R manuals & documentation   |

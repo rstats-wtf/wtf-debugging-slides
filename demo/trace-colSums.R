@@ -13,7 +13,6 @@ untrace(colSums)
 x <- as.list(body(colSums))
 View(x)
 
-
 # identify spot to insert code
 as.list(x[[3]][[1]])
 # equivalent notation
