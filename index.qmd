@@ -470,24 +470,49 @@ g <- function(x) f(x)
 
 ## Interactive debugger tips
 
-Investigate objects: `ls()`, `str()`, `ls.str()`, `print()`
+<br>
 
-. . .
+::: columns
+::: {.column width="35%"}
 
-<brshort>
+Investigate objects 
 
-Control execution:
+<br>
+
+<br>
+
+Control execution
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+`ls()`, `ls.str()`,<br> `str()`, `print()`
+
+<br>
+
+::: {.small}
 
 | command | operation               |
 |---------|-------------------------|
 | `n`     | next statement          |
-| `c`     | continue                |
+| `c`     | continue (leave interactive debugging) |
 | `s`     | step into function call |
 | `f`     | finish loop / function  |
 | `where` | show previous calls     |
 | `Q`     | quit debugger           |
+:::
 
 :::
+
+:::
+
+
+
+
+
+
 
 ## Debugging your code
 
