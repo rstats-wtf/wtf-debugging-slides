@@ -96,6 +96,12 @@ $h3-font-size: 1.15em !default;
   color: $link-color;
 }
 
+.importantb {
+  color: $link-color;
+  font-weight: bold;
+}
+
+
 .black-code {
   color: #000000;
   font-family: $font-family-monospace;
@@ -113,3 +119,21 @@ $h3-font-size: 1.15em !default;
   font-family: $font-family-monospace;
   font-size: 1em;
 }
+
+/* agenda slide */
+
+.agenda {
+  background: #333399;
+}
+.agenda-active {
+  border: solid red;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+}
+
+
+/* images */
+
+.img600 { height: 600px; }
+
+/* ---- */

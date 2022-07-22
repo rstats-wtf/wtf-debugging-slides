@@ -15,6 +15,27 @@ execute:
   freeze: auto
 ---
 
+# Agenda
+
+
+Getting started
+
+Troubleshooting
+
+Moving on
+
+Debugging your code
+
+Debugging in RStudio
+
+Debugging their code
+
+Special cases
+
+Read the source
+
+
+
 # Getting started
 
 ```{r}
@@ -84,6 +105,8 @@ Artwork by [\@allison_horst](https://twitter.com/allison_horst).
 
 <https://github.com/allisonhorst/stats-illustrations>
 :::
+
+
 
 # Troubleshooting
 
@@ -218,6 +241,7 @@ Troubleshooting strategies:
 ::: footer
 <https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
 :::
+
 
 # Moving on
 
@@ -904,27 +928,27 @@ countdown(
 
 # Special cases
 
-## Warnings
+## Rmarkdown {.smaller}
 
 <br>
 
-If you want to dig deeper into a warning, you can convert them to errors to initiate debugging tools.
+#### Troubleshooting:
 
-<brshort>
+1.  rmarkdown chunk option `error = TRUE` enables knitting with errors
 
-```{r, eval=FALSE, echo=TRUE}
-?options
-options(warn = 0) # default, stores warnings until top-level function returns
-options(warn = 1) # warnings are printed as they occur
-options(warn = 2) # upgrades warnings to errors
+2.  insert `knitr::knit_exit()` and interactively work through .Rmd
+
+. . .
+
+<br>
+
+#### Debugging:
+
+1.  Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
+
+2.  WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
 
 
-# initiate recover on warning
-options(warn = 2, error = recover)
-# restore original settings
-options(warn = 0, error = NULL)
-
-```
 
 ## Piped expressions
 
@@ -950,25 +974,29 @@ gives trimmed tracebacks when using pipes
 
 -   Matt Dray 2019 blog post [Fix leaky pipes in R](https://www.rostrum.blog/2019/04/07/fix-leaky-pipes/)
 
-## Rmarkdown {.smaller}
+
+
+## Warnings
 
 <br>
 
-#### Troubleshooting:
+If you want to dig deeper into a warning, you can convert them to errors to initiate debugging tools.
 
-1.  rmarkdown chunk option `error = TRUE` enables knitting with errors
+<brshort>
 
-2.  insert `knitr::knit_exit()` and interactively work through .Rmd
+```{r, eval=FALSE, echo=TRUE}
+?options
+options(warn = 0) # default, stores warnings until top-level function returns
+options(warn = 1) # warnings are printed as they occur
+options(warn = 2) # upgrades warnings to errors
 
-. . .
 
-<br>
+# initiate recover on warning
+options(warn = 2, error = recover)
+# restore original settings
+options(warn = 0, error = NULL)
 
-#### Debugging:
-
-1.  Adv R Ch 22.5.3 RMarkdown <https://adv-r.hadley.nz/debugging.html#rmarkdown>
-
-2.  WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
+```
 
 ## Debugging special cases
 
