@@ -17,7 +17,6 @@ execute:
 
 # Agenda
 
-
 Getting started
 
 Troubleshooting
@@ -33,8 +32,6 @@ Debugging their code
 Special cases
 
 Read the source
-
-
 
 # Getting started
 
@@ -105,8 +102,6 @@ Artwork by [\@allison_horst](https://twitter.com/allison_horst).
 
 <https://github.com/allisonhorst/stats-illustrations>
 :::
-
-
 
 # Troubleshooting
 
@@ -241,7 +236,6 @@ Troubleshooting strategies:
 ::: footer
 <https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
 :::
-
 
 # Moving on
 
@@ -471,7 +465,7 @@ Numbering and ordering differs between `traceback()` and rlang functions.
 
 ```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="2"}
 f <- function(x) {
-  browser(x)
+  browser()
   x + 1
 }
 
@@ -498,8 +492,7 @@ g <- function(x) f(x)
 
 ::: columns
 ::: {.column width="35%"}
-
-Investigate objects 
+Investigate objects
 
 <br>
 
@@ -516,27 +509,18 @@ Control execution
 
 <br>
 
-::: {.small}
-
-| command | operation               |
-|---------|-------------------------|
-| `n`     | next statement          |
+::: small
+| command | operation                              |
+|---------|----------------------------------------|
+| `n`     | next statement                         |
 | `c`     | continue (leave interactive debugging) |
-| `s`     | step into function call |
-| `f`     | finish loop / function  |
-| `where` | show previous calls     |
-| `Q`     | quit debugger           |
+| `s`     | step into function call                |
+| `f`     | finish loop / function                 |
+| `where` | show previous calls                    |
+| `Q`     | quit debugger                          |
 :::
-
 :::
-
 :::
-
-
-
-
-
-
 
 ## Debugging your code
 
@@ -948,8 +932,6 @@ countdown(
 
 2.  WTF Ch 11.4 Debugging in Rmarkdown documents <https://rstats.wtf/debugging-r-code.html#debugging-in-r-markdown-documents>
 
-
-
 ## Piped expressions
 
 <br>
@@ -973,8 +955,6 @@ gives trimmed tracebacks when using pipes
 -   more [contributed answers on RStudio Community](https://community.rstudio.com/t/whats-currently-the-recommended-way-to-debug-pipe-chains/14724/3)
 
 -   Matt Dray 2019 blog post [Fix leaky pipes in R](https://www.rostrum.blog/2019/04/07/fix-leaky-pipes/)
-
-
 
 ## Warnings
 
