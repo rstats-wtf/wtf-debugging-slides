@@ -1,0 +1,113 @@
+---
+title: "Debugging Overview"
+author: "Shannon Pileggi"
+footer:  "[Debugging](https://github.com/shannonpileggi/iterating-well-with-purrr)"
+logo: "img/wtf-logo-square-transparent.png"
+format: 
+  revealjs: 
+    theme: [night, slides.scss]
+    highlight-style: a11y
+    transition: fade
+    slide-number: true
+    chalkboard: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+
+
+
+## Key concepts
+
+<br>
+
+`r fontawesome::fa("road", fill = "white")` traceback
+
+   `location` where did the error occur
+
+<br>
+
+`r fontawesome::fa("bug", fill = "white")` interactive debugger
+
+   `context` why did the error occur
+
+<br>
+
+`r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   `r fontawesome::fa("hat-wizard", fill = "white")` their code
+
+::: notes
+interactive debugging: pause the execution of a function and launch environment where you can interactively explore what's happening
+:::
+
+## Debugging tools
+
+![](img/debugging_tools.svg)
+
+## Debugging your code
+
+![](img/debugging_yours.svg)
+
+
+## Debugging in the RStudio IDE
+
+![](img/debugging_ide.svg)
+
+
+
+## Debugging their code
+
+![](img/debugging_theirs.svg)
+
+
+
+## Debugging special cases
+
+![](img/debugging_special.svg)
+
+
+## Pick your favorite
+
+![](img/debugging_pick.svg)
+
+
+## Go forth, <br> and learn from your bugs!
+
+::: columns
+::: {.column width="58%"}
+![](img/butterflies.gif){fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="40%"}
+
+:::
+:::
+
+::: footer
+<https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
+:::
+
+
+
+## Additional resources {.smaller}
+
+-   WTF Ch 11 *Debugging R code* <br> <https://rstats.wtf/debugging-r-code.html>
+
+-   Advanced R Ch 22 *Debugging* <br> <https://adv-r.hadley.nz/debugging.html>
+
+-   Jenny Bryan 2020 RStudio Conf Keynote *Object of type closure is not subsettable* <br> <https://github.com/jennybc/debugging#readme>
+
+-   Amanda Gadrow 2018 Webinar *Debugging techniques in RStudio* <br> <https://www.rstudio.com/resources/webinars/debugging-techniques-in-rstudio/>
+
+-   Jim Hester 2019 *Introduction to debugging in R and RStudio* <br> <https://www.jimhester.com/talk/2019-crug-debugging/>
+
+-   Maëlle Salmon 2021 *How to become a better R code detective?* <br> <https://masalmon.eu/2021/07/13/code-detective/>
+
+-   Kara Woo 2019 RStudio Conf *Box plots A case study in debugging and perseverance* <https://www.rstudio.com/resources/rstudioconf-2019/box-plots-a-case-study-in-debugging-and-perseverance/>
+
+::: footer
+:::
+

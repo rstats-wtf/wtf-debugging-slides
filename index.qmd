@@ -1,7 +1,7 @@
 ---
 title: "Debugging"
 author: "Shannon Pileggi"
-footer:  "[Debugging](https://github.com/shannonpileggi/iterating-well-with-purrr)"
+footer:  "[Debugging](https://github.com/rstats-wtf/wtf-debugging-slides)"
 logo: "img/wtf-logo-square-transparent.png"
 format: 
   revealjs: 
@@ -785,7 +785,7 @@ options(error = NULL)
 
 `trace(what = fun, tracer = browser)` <br> is equivalent to
 
--   inserting `broswer()` in first line of function
+-   inserting `browser()` in first line of function
 
 -   `debug(fun)`
 
@@ -820,7 +820,7 @@ untrace(colSums)
 
 `trace(what = colSums, tracer = browser)` <br> is equivalent to
 
--   inserting `broswer()` in first line of `colSums` <br> if we had the source code
+-   inserting `browser()` in first line of `colSums` <br> if we had the source code
 
 -   `debug(colSums)`
 
