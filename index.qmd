@@ -691,7 +691,7 @@ g(factor("a,b"))
 ::: footer
 To have RStudio invoke the debugger on any error,
 
-`Tools -> Global Options`
+`Tools -> Global Options -> General -> Advanced -> Debugging`
 
 *uncheck* `Use debug error handler only when my code contains errors.`
 :::
