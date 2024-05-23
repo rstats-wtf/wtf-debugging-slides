@@ -84,40 +84,20 @@ Pretty recent?
 ::: footer
 :::
 
-## 
 
-```{r, out.width="20%"}
-#| fig.alt: > 
-#|   A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The 
-#|   progression goes from (1) “I got this” - looking determined and optimistic; (2) “Huh. Really thought that was it.” - looking a bit
-#|   baffled; (3) “...” - looking up at the ceiling in thought; (4) “Fine. Restarting.” - looking a bit annoyed; (5) “OH WTF.” Looking very
-#|   frazzled and frustrated; (6) “Zombie meltdown.” - looking like a full meltdown; (7) (blank) - sleeping; (8) “A NEW HOPE!” - a happy
-#|   looking monster with a lightbulb above; (9) “insert awesome theme song” - looking determined and typing away; (10) “I love coding” -
-#|   arms raised in victory with a big smile, with confetti falling.
-knitr::include_graphics("img/debugging.jpg")
-```
+## Troubleshooting
 
-::: footer
-Artwork by [\@allison_horst](https://twitter.com/allison_horst).
+1. **SEARCH** <br> *Teach Me How To Google*, Samantha Csik (2022) <br> [slides](https://samanthacsik.github.io/teach-me-how-to-google/slides/RLadiesSTL-2022-02-22.html#1), [recording](https://youtu.be/93WsFQUuxvA)
 
-<https://github.com/allisonhorst/stats-illustrations>
-:::
+2. **RESET** <br> Restart R, especially when things get weird.
 
-# Troubleshooting
+3. **REPREX** <br>  <https://reprex.tidyverse.org/><br> 
+*make a reprex..... please*, Sharla Gelfand (2021) <br>
+[slides](https://make-a-reprex-please.netlify.app/#1),
+[recording](https://www.youtube.com/watch?v=G5Nm-GpmrLw)
 
-## 1. Search
 
-<br>
-
--   Google *exact* error message
-
--   keyword search on [RStudio community](https://community.rstudio.com/)
-
--   keyword search on [stackoverflow](https://stackoverflow.com/), `[r]` tag
-
-Samantha Csik 2022 R-Ladies St. Louis Workshop *Teach Me How To Google*: [slides](https://samanthacsik.github.io/teach-me-how-to-google/slides/RLadiesSTL-2022-02-22.html#1), [recording](https://youtu.be/93WsFQUuxvA)
-
-## 2. Reset {.smaller}
+## Reset - details
 
 <brshort>
 
@@ -125,109 +105,100 @@ Samantha Csik 2022 R-Ladies St. Louis Workshop *Teach Me How To Google*: [slides
 Have you tried turning it `OFF` and `ON` again?
 :::
 
-. . .
-
 <brshort>
 
-::: r-fit-text
-Restart R, especially when things get weird.
-:::
 
-. . .
+::: columns
+::: {.column width="50%"}
 
-<brshort>
 
-Session -\> Restart R or
+`Session -> Restart R` or
 
 -   Ctrl + Shift + F10 (Windows),
 
 -   Cmd + Shift + 0 / Cmd + Shift + F10 (Mac)
 
+:::
+
+::: {.column width="50%"}
 `Tools -> Global Options -> Workspace`
 
 ![](img/workspace-options.PNG)
-
-::: footer
-:::
-
-## 3. Reprex
-
-::: r-fit-text
-minimum `repr`oducible `ex`ample
-:::
-
-::: columns
-::: {.column width="45%"}
-![](img/reprex-logo.png)
-:::
-
-::: {.column width="55%"}
-<br> <br> <https://reprex.tidyverse.org/>
 :::
 :::
+
+
+## Why reset?
+
+_Which persist after rm(list = ls())?_
+
+| Option                               | Persists?                                      |
+|-------------------------------------------------------|-----------------|
+| A. library(dplyr)                    | `r fontawesome::fa("check", fill = "#343838")` |
+| B. summary \<- head                  | `r fontawesome::fa("xmark", fill = "#343838")` |
+| C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = "#343838")` |
+| D. Sys.setenv(LANGUAGE = "fr")        | `r fontawesome::fa("check", fill = "#343838")` |
+| E. x \<- 1:5                         | `r fontawesome::fa("xmark", fill = "#343838")` |
+| F. attach(iris)                      | `r fontawesome::fa("check", fill = "#343838")` |
+
+```{r}
+countdown(
+  minutes = 2
+  )
+```
+
+## Why reset?
+
+_Which persist after rm(list = ls())?_
+
+| Option                               | Persists?                                    |
+|-------------------------------------------------------|-----------------|
+| A. library(dplyr)                    | `r fontawesome::fa("check", fill = fa_fill)` |
+| B. summary \<- head                  | `r fontawesome::fa("xmark", fill = "white")` |
+| C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = fa_fill)` |
+| D. Sys.setenv(LANGUAGE = "fr")        | `r fontawesome::fa("check", fill = fa_fill)` |
+| E. x \<- 1:5                         | `r fontawesome::fa("xmark", fill = "white")` |
+| F. attach(iris)                      | `r fontawesome::fa("check", fill = fa_fill)` |
+
+
+
+
+## Your turn, exercise 00
+
+Either on your Posit cloud workspace or your personal computer...
+
 
 <brshort>
 
-::: footer
-*make a reprex..... please* by Sharla Gelfand (2021)
-
-slides: <https://make-a-reprex-please.netlify.app/#1>
-
-recording: <https://www.youtube.com/watch?v=G5Nm-GpmrLw>
+::: question
+Set your Workspace options as shown.
 :::
 
-## minimum
+`Tools -> Global Options -> Workspace`
 
-![](img/haystack.PNG){fig-align="center"}
-
-::: footer
-Jenny Bryan (2020) *Object of type closure is not subsettable*
-
-<https://github.com/jennybc/debugging>
+::: columns
+::: {.column width="50%"}
+![](img/workspace-options.PNG)
+:::
 :::
 
-::: notes
-MINIMAL: Don't wring hands and speculate.
-Work a small concrete example that reveals, confirms, or eliminates something.
-:::
+```{r}
+countdown(
+  minutes = 2,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  )
+```
 
-## `repr`oducible `ex`ample
 
-![](img/say_do.PNG){fig-align="center"}
-
-::: footer
-Jenny Bryan (2020) *Object of type closure is not subsettable*
-
-<https://github.com/jennybc/debugging>
-:::
-
-::: notes
-Reproducible example: No reliance on hidden state
-:::
-
-## why reprex
-
-![](img/reprex-why.PNG){fig-align="center"}
-
-::: footer
-Jenny Bryan (2020) *Object of type closure is not subsettable*
-
-<https://github.com/jennybc/debugging>
-:::
-
-## Review
-
-<br>
-
-Troubleshooting strategies:
-
-<br>
-
-1.  Search
-
-2.  Reset
-
-3.  Reprex
 
 ## But what if
 
@@ -301,6 +272,13 @@ These tools achieve similar objectives slightly differently.
 People don't generally use *all* of these tools at once.
 They pick and choose the ones they like.
 
+
+# Debugging your code
+
+## Debugging your code
+
+![](img/debugging_yours.svg)
+
 ## Sourcing
 
 <br>
@@ -333,64 +311,8 @@ g <- function(x) f(x)
 g("a")
 ```
 
-# Debugging your code
 
-## print()
 
-```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2"}
-f <- function(x) {
-  print(x)
-  x + 1
-}
-
-g <- function(x) f(x)
-```
-
-```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2"}
-g("a")
-```
-
-::: notes
-Insert numerous print statements to precisely locate the problem, and see the values of important variables.
-
-Print debugging is slow and primitive, but it always works.
-
-Can provide location by inserting print statements in different places, can provide context by seeing values.
-
-can assess `location` by where `print` statement is inserted
-
-can assess `context` by value printed
-
-`non-interactive` debugging
-
-good for `your code`
-:::
-
-## cat()
-
-```{r, eval=TRUE, echo=TRUE, error=TRUE, `code-line-numbers`="2-3"}
-f <- function(x) {
-  cat("f()\n")
-  cat("x =", x, "\n")
-  x + 1
-}
-
-g <- function(x) f(x)
-
-g("a")
-```
-
-::: notes
-can assess `location` by where `print` statement is inserted
-
-can assess `context` by value printed
-
-`non-interactive` debugging
-
-good for `your code`
-
-print is handy to see full object; cat is handy to create smaller messages
-:::
 
 ## traceback()
 
@@ -416,18 +338,6 @@ used interactively in console, called for last error observed
 the trace back is also known as: <br> call stack, stack trace, & back trace
 :::
 
-## Richer traceback
-
-<br>
-
-```{r, eval=FALSE, echo=TRUE, error = TRUE, `code-line-numbers`="2,4"}
-source("demo/my_functions.R")
-options(error = rlang::entrace) 
-g("a")
-rlang::last_error()
-```
-
-![](img/rlang_last-error.PNG)
 
 ## Richer traceback
 
@@ -437,7 +347,6 @@ rlang::last_error()
 source("demo/my_functions.R")
 options(error = rlang::entrace) 
 g("a")
-rlang::last_error()
 rlang::last_trace()
 ```
 
@@ -528,9 +437,9 @@ Control execution
 
 ## Your turn, exercise 01
 
-```{r, eval=FALSE, echo=TRUE}
-usethis::use_course("rstats-wtf/wtf-debugging")
-```
+Enter Posit cloud or work locally via 
+`usethis::use_course("rstats-wtf/wtf-debugging")`
+(<https://github.com/rstats-wtf/wtf-debugging>)
 
 <brshort>
 
@@ -569,6 +478,10 @@ countdown(
 :::
 
 # Debugging in RStudio
+
+## Debugging in the RStudio IDE
+
+![](img/debugging_ide.svg)
 
 ## Editor breakpoints
 
@@ -720,6 +633,10 @@ countdown(
 
 # Debugging their code
 
+## Debugging their code
+
+![](img/debugging_theirs.svg)
+
 ## debug()
 
 `debug()` = `browser()`/ `breakpoint` in first line of function
@@ -738,7 +655,8 @@ undebug("g")
 
 -   interactive debugger is initiated every time `g()` is executed, until `undebug("g")`
 
--   depending on function internals, this can... trap you in the debugger 😬
+-   depending on function internals, this can...
+    trap you in the debugger 😬
 
 ## debugonce()
 
@@ -886,8 +804,9 @@ untrace(colSums)
 <br>
 
 ```{r, eval=FALSE, echo=TRUE}
+# already installed in the Posit Cloud work space
 # install.packages("devtools")
-devtools::install_github("rstats-wtf/wtfdbg")
+# devtools::install_github("rstats-wtf/wtfdbg")
 ```
 
 <br>
@@ -906,9 +825,6 @@ countdown(
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
 
-## Pick your favorite
-
-![](img/debugging_pick.svg)
 
 # Special cases
 
@@ -982,141 +898,34 @@ options(warn = 0, error = NULL)
 
 ![](img/debugging_special.svg)
 
-# Read the source
+# Wrap up
 
-##  {background-image="img/read-the-source-luke.PNG"}
+## Pick your favorite
 
-## (almost) all source on GitHub
+![](img/debugging_pick.svg)
 
-<br>
-
-| Link                                                       | Description                                   |
-|----------------------------------------|--------------------------------|
-| [github.com/search](https://github.com/search)             | All of GitHub! Can do advanced searches, too. |
-| [github.com/cran](https://github.com/cran)                 | CRAN packages                                 |
-| [github.com/wch/r-source](https://github.com/wch/r-source) | R core                                        |
-
-: {tbl-colwidths="\[50,50\]"}
-
-<br>
-
-[About searching on GitHub](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/about-searching-on-github)
-
-## google: cran pkgname
-
-<br>
-
-![](img/usethis-cran-markup.png)
-
-::: footer
-<https://cran.r-project.org/web/packages/usethis/index.html>
-:::
-
-## [github.com/cran](https://github.com/cran)
-
-![](img/package-structure.PNG)
-
-::: columns
-::: {.column width="25%"}
-In R console
-:::
-
-::: {.column width="75%"}
-`pkg::fnc` to see exported functions
-
-`pkg:::fnc` to see non-exported functions
-:::
-:::
-
-::: footer
-From *Package development with devtools* RStudio cheatsheet <br> <https://www.rstudio.com/resources/cheatsheets/>
-:::
-
-## Your turn, investigating a CRAN package
-
-<br>
-
-::: question
-At a high level, <br> how does readr::read_lines() work?
-:::
-
-```{r}
-countdown(
-  minutes = 3
-  )
-```
-
-## [github.com/wch/r-source](https://github.com/wch/r-source)
-
-<br>
-
-| Location                                                               | Item                        |
-|---------------------------------------------------|---------------------|
-| [src/main](https://github.com/wch/r-source/tree/trunk/src/main)        | base R                      |
-| [src/library/](https://github.com/wch/r-source/tree/trunk/src/library) | packages included in base R |
-| [doc/manual](https://github.com/wch/r-source/tree/trunk/doc/manual)    | R manuals & documentation   |
-
-## Your turn, investigating source code
-
-<br>
-
-::: question
-1.  When was the trimws() function added to base R?
-
-2.  How does is.na() work?
-:::
-
-*Hints on next slides.*
-
-```{r}
-countdown(
-  minutes = 5
-  )
-```
-
-## Investigating source code hints
-
-::: question
-1.  When was the trimws() function added to base R?
-:::
-
-Try restricting search to only commit messages in [github.com/wch/r-source](https://github.com/wch/r-source/).
-
-## Investigating source code hints
-
-::: question
-2.  How does is.na() work?
-:::
-
-1.  Look at the function.
-
-```{r, eval=TRUE, echo=TRUE}
-is.na
-```
-
-2.  Look in [github.com/wch/r-source/src/main/names.c](https://github.com/wch/r-source/blob/trunk/src/main/names.c) to find the name of the [internal function](https://github.com/wch/r-source/blob/4a73802c7d6de8670cfe8b9301232cbf2b63a201/src/main/names.c#L615).
-    Or in GitHub search bar: `is.na filename:names.c`.
-
-3.  In GitHub search bar: `"do_isna" language:c`
 
 ## Go forth, <br> and learn from your bugs!
 
 ::: columns
-::: {.column width="58%"}
+::: {.column width="53%"}
 ![](img/butterflies.gif){fig-align="center"}
 :::
 
 ::: {.column width="2%"}
 :::
 
-::: {.column width="40%"}
-<br> <br>
+::: {.column width="45%"}
 
-Troubleshoot
+`r fontawesome::fa("road", fill = "white")` traceback
 
-Debug
+<br>
 
-Read the source
+`r fontawesome::fa("bug", fill = "white")` interactive debugger
+
+<br>
+
+`r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   <br> `r fontawesome::fa("hat-wizard", fill = "white")` their code
 :::
 :::
 
