@@ -165,6 +165,8 @@ Either on your Posit cloud workspace or your personal computer...
 Set your Workspace options as shown.
 :::
 
+`usethis::use_blank_slate()` or
+
 `Tools -> Global Options -> Workspace`
 
 :::: columns
