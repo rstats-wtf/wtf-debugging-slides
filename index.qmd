@@ -383,26 +383,22 @@ g <- function(x) f(x)
 
 ## Interactive debugger tips
 
-<br>
 
 ::::::: columns
 ::: {.column width="35%"}
 Investigate objects
 
-<br>
+`ls()`, `ls.str()`,<br> `str()`, `print()`
 
-<br>
-
-Control execution
 :::
 
 ::: {.column width="5%"}
 :::
 
-:::: {.column width="55%"}
-`ls()`, `ls.str()`,<br> `str()`, `print()`
+:::: {.column width="60%"}
 
-<br>
+Control execution
+
 
 ::: small
 | command | operation                              |
