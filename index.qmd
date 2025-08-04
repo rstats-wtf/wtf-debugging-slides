@@ -90,7 +90,9 @@ Pretty recent?
 
 2.  **RESET** <br> Restart R, especially when things get weird.
 
-3.  **REPREX** <br> <https://reprex.tidyverse.org/><br> *make a reprex..... please*, Sharla Gelfand (2021) <br> [slides](https://make-a-reprex-please.netlify.app/#1), [recording](https://www.youtube.com/watch?v=G5Nm-GpmrLw)
+3.  **REPREX** <br> *make a reprex..... please*, Sharla Gelfand (2021) <br> [slides](https://make-a-reprex-please.netlify.app/#1), [recording](https://www.youtube.com/watch?v=G5Nm-GpmrLw), <https://reprex.tidyverse.org/>
+
+4. **AI** Claude, ChatGPT, etc.
 
 ## Reset - details
 
