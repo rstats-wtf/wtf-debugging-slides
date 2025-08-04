@@ -457,11 +457,28 @@ countdown(
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
 
+## Code tip
+
+`{lintr}` can automate checks to warn you if you leave `browser()` statements in your code. 
+
+<br> 
+
+<https://lintr.r-lib.org/reference/default_undesirable_functions.html>
+
+<br> 
+
+`usethis::use_github_action("lint")`
+
+Live example in `{devtools}`
+<https://github.com/r-lib/devtools/actions/workflows/lint.yaml>
+
+
 # Debugging in RStudio
 
 ## Debugging in the RStudio IDE
 
 ![](img/debugging_ide.svg)
+
 
 ## Editor breakpoints
 
