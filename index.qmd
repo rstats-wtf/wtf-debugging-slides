@@ -263,6 +263,18 @@ These tools achieve similar objectives slightly differently.
 People don't generally use *all* of these tools at once.
 They pick and choose the ones they like.
 
+## RStudio vs Positron
+
+Debugging tools in Positron are still under active development. `browser()` and `debugonce()` are supported, but breakpoints aren't.
+
+* [Positron facilitates debugging C++ code](https://youtu.be/8uRcB34Hhsw?si=yzfiNvViVRj8gRXj&t=2827) posit::conf(2024), Davis Vaughn, Aug 2024
+
+* [Positron IDE Debugger for R Demo with Nested Functions (Public Beta)](https://www.youtube.com/watch?v=p_4ZS-nnQ2Q&t=53s) 
+YouTube, James Balamuta, Jun 2024
+
+* [Positron: current joys and pains](https://drmowinckels.io/blog/2025/positron-debugging/), blog post, Athanasia Mowinckel, Apr 2025
+
+
 # Debugging your code
 
 ## Debugging your code
