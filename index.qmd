@@ -114,7 +114,10 @@ Have you tried turning it `OFF` and `ON` again?
 :::
 
 ::: {.column width="50%"}
-`Tools -> Global Options -> Workspace`
+
+`usethis::use_blank_slate()`
+
+or `Tools -> Global Options -> Workspace`
 
 ![](img/workspace-options.PNG)
 :::
