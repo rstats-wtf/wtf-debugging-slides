@@ -55,11 +55,11 @@ fa_fill <- "#C7B41D"
 `r fontawesome::fa("check", fill = fa_fill)` R installed?
 Pretty recent?
 
-     Recommended R ≥ 4.2.0
+     Recommended R ≥ 4.4.0
 
 `r fontawesome::fa("check", fill = fa_fill)` RStudio installed?
 
-     I'm on 2022.02.3+492
+     I'm on 2025.05.1+513
 
 `r fontawesome::fa("check", fill = fa_fill)` Ready to build packages?
 
@@ -84,18 +84,15 @@ Pretty recent?
 ::: footer
 :::
 
-
 ## Troubleshooting
 
-1. **SEARCH** <br> *Teach Me How To Google*, Samantha Csik (2022) <br> [slides](https://samanthacsik.github.io/teach-me-how-to-google/slides/RLadiesSTL-2022-02-22.html#1), [recording](https://youtu.be/93WsFQUuxvA)
+1.  **SEARCH** <br> *Teach Me How To Google*, Samantha Csik (2022) <br> [slides](https://samanthacsik.github.io/teach-me-how-to-google/slides/RLadiesSTL-2022-02-22.html#1), [recording](https://youtu.be/93WsFQUuxvA)
 
-2. **RESET** <br> Restart R, especially when things get weird.
+2.  **RESET** <br> Restart R, especially when things get weird.
 
-3. **REPREX** <br>  <https://reprex.tidyverse.org/><br> 
-*make a reprex..... please*, Sharla Gelfand (2021) <br>
-[slides](https://make-a-reprex-please.netlify.app/#1),
-[recording](https://www.youtube.com/watch?v=G5Nm-GpmrLw)
+3.  **REPREX** <br> *make a reprex..... please*, Sharla Gelfand (2021) <br> [slides](https://make-a-reprex-please.netlify.app/#1), [recording](https://www.youtube.com/watch?v=G5Nm-GpmrLw), <https://reprex.tidyverse.org/>
 
+4. **AI** Claude, ChatGPT, etc.
 
 ## Reset - details
 
@@ -107,39 +104,37 @@ Have you tried turning it `OFF` and `ON` again?
 
 <brshort>
 
-
-::: columns
+::::: columns
 ::: {.column width="50%"}
-
-
 `Session -> Restart R` or
 
 -   Ctrl + Shift + F10 (Windows),
 
 -   Cmd + Shift + 0 / Cmd + Shift + F10 (Mac)
-
 :::
 
 ::: {.column width="50%"}
-`Tools -> Global Options -> Workspace`
+
+`usethis::use_blank_slate()`
+
+or `Tools -> Global Options -> Workspace`
 
 ![](img/workspace-options.PNG)
 :::
-:::
-
+:::::
 
 ## Why reset?
 
-_Which persist after rm(list = ls())?_
+*Which persist after rm(list = ls())?*
 
-| Option                               | Persists?                                      |
-|-------------------------------------------------------|-----------------|
-| A. library(dplyr)                    | `r fontawesome::fa("check", fill = "#343838")` |
-| B. summary \<- head                  | `r fontawesome::fa("xmark", fill = "#343838")` |
+| Option | Persists? |
+|------------------------------------------------------|------------------|
+| A. library(dplyr) | `r fontawesome::fa("check", fill = "#343838")` |
+| B. summary \<- head | `r fontawesome::fa("xmark", fill = "#343838")` |
 | C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = "#343838")` |
-| D. Sys.setenv(LANGUAGE = "fr")        | `r fontawesome::fa("check", fill = "#343838")` |
-| E. x \<- 1:5                         | `r fontawesome::fa("xmark", fill = "#343838")` |
-| F. attach(iris)                      | `r fontawesome::fa("check", fill = "#343838")` |
+| D. Sys.setenv(LANGUAGE = "fr") | `r fontawesome::fa("check", fill = "#343838")` |
+| E. x \<- 1:5 | `r fontawesome::fa("xmark", fill = "#343838")` |
+| F. attach(iris) | `r fontawesome::fa("check", fill = "#343838")` |
 
 ```{r}
 countdown(
@@ -149,24 +144,20 @@ countdown(
 
 ## Why reset?
 
-_Which persist after rm(list = ls())?_
+*Which persist after rm(list = ls())?*
 
-| Option                               | Persists?                                    |
-|-------------------------------------------------------|-----------------|
-| A. library(dplyr)                    | `r fontawesome::fa("check", fill = fa_fill)` |
-| B. summary \<- head                  | `r fontawesome::fa("xmark", fill = "white")` |
+| Option | Persists? |
+|------------------------------------------------------|------------------|
+| A. library(dplyr) | `r fontawesome::fa("check", fill = fa_fill)` |
+| B. summary \<- head | `r fontawesome::fa("xmark", fill = "white")` |
 | C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = fa_fill)` |
-| D. Sys.setenv(LANGUAGE = "fr")        | `r fontawesome::fa("check", fill = fa_fill)` |
-| E. x \<- 1:5                         | `r fontawesome::fa("xmark", fill = "white")` |
-| F. attach(iris)                      | `r fontawesome::fa("check", fill = fa_fill)` |
-
-
-
+| D. Sys.setenv(LANGUAGE = "fr") | `r fontawesome::fa("check", fill = fa_fill)` |
+| E. x \<- 1:5 | `r fontawesome::fa("xmark", fill = "white")` |
+| F. attach(iris) | `r fontawesome::fa("check", fill = fa_fill)` |
 
 ## Your turn, exercise 00
 
 Either on your Posit cloud workspace or your personal computer...
-
 
 <brshort>
 
@@ -174,13 +165,15 @@ Either on your Posit cloud workspace or your personal computer...
 Set your Workspace options as shown.
 :::
 
+`usethis::use_blank_slate()` or
+
 `Tools -> Global Options -> Workspace`
 
-::: columns
+:::: columns
 ::: {.column width="50%"}
 ![](img/workspace-options.PNG)
 :::
-:::
+::::
 
 ```{r}
 countdown(
@@ -197,8 +190,6 @@ countdown(
   font_size = "2em",
   )
 ```
-
-
 
 ## But what if
 
@@ -272,6 +263,17 @@ These tools achieve similar objectives slightly differently.
 People don't generally use *all* of these tools at once.
 They pick and choose the ones they like.
 
+## RStudio vs Positron
+
+Debugging tools in Positron are still under active development. `browser()` and `debugonce()` are supported, but breakpoints aren't.
+
+* [Positron facilitates debugging C++ code](https://youtu.be/8uRcB34Hhsw?si=yzfiNvViVRj8gRXj&t=2827) posit::conf(2024), Davis Vaughn, Aug 2024
+
+* [Positron IDE Debugger for R Demo with Nested Functions (Public Beta)](https://www.youtube.com/watch?v=p_4ZS-nnQ2Q&t=53s) 
+YouTube, James Balamuta, Jun 2024
+
+* [Positron: current joys and pains](https://drmowinckels.io/blog/2025/positron-debugging/), blog post, Athanasia Mowinckel, Apr 2025
+
 
 # Debugging your code
 
@@ -311,9 +313,6 @@ g <- function(x) f(x)
 g("a")
 ```
 
-
-
-
 ## traceback()
 
 <br>
@@ -337,7 +336,6 @@ used interactively in console, called for last error observed
 ::: footer
 the trace back is also known as: <br> call stack, stack trace, & back trace
 :::
-
 
 ## Richer traceback
 
@@ -397,26 +395,22 @@ g <- function(x) f(x)
 
 ## Interactive debugger tips
 
-<br>
 
-::: columns
+::::::: columns
 ::: {.column width="35%"}
 Investigate objects
 
-<br>
+`ls()`, `ls.str()`,<br> `str()`, `print()`
 
-<br>
-
-Control execution
 :::
 
 ::: {.column width="5%"}
 :::
 
-::: {.column width="55%"}
-`ls()`, `ls.str()`,<br> `str()`, `print()`
+:::: {.column width="60%"}
 
-<br>
+Control execution
+
 
 ::: small
 | command | operation                              |
@@ -428,8 +422,8 @@ Control execution
 | `where` | show previous calls                    |
 | `Q`     | quit debugger                          |
 :::
-:::
-:::
+::::
+:::::::
 
 ## Debugging your code
 
@@ -437,9 +431,7 @@ Control execution
 
 ## Your turn, exercise 01
 
-Enter Posit cloud or work locally via 
-`usethis::use_course("rstats-wtf/wtf-debugging")`
-(<https://github.com/rstats-wtf/wtf-debugging>)
+Enter Posit cloud or work locally via `usethis::use_course("rstats-wtf/wtf-debugging")` (<https://github.com/rstats-wtf/wtf-debugging>)
 
 <brshort>
 
@@ -477,11 +469,28 @@ countdown(
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
 
+## Code tip
+
+`{lintr}` can automate checks to warn you if you leave `browser()` statements in your code. 
+
+<br> 
+
+<https://lintr.r-lib.org/reference/default_undesirable_functions.html>
+
+<br> 
+
+`usethis::use_github_action("lint")`
+
+Live example in `{devtools}`
+<https://github.com/r-lib/devtools/actions/workflows/lint.yaml>
+
+
 # Debugging in RStudio
 
 ## Debugging in the RStudio IDE
 
 ![](img/debugging_ide.svg)
+
 
 ## Editor breakpoints
 
@@ -525,14 +534,14 @@ RStudio IDE cheatsheet
 
 ## IDE on error
 
-::: columns
+:::::: columns
 ::: {.column width="45%"}
 Automatically invoke actions on error.
 
 ![](img/IDE_debug_menu_crop.png)
 :::
 
-::: {.column .fragment width="55%"}
+:::: {.column .fragment width="55%"}
 New set up for demonstration.
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
@@ -548,8 +557,8 @@ g("a,b")
 g(factor("a,b"))
 ```
 :::
-:::
-:::
+::::
+::::::
 
 ## IDE message only
 
@@ -571,7 +580,7 @@ g(factor("a,b"))
 
 ## Error inspector
 
-::: columns
+:::::: columns
 ::: {.column width="58%"}
 ```{r, echo=TRUE, eval=FALSE}
 # IDE Error Inspector not triggered
@@ -599,7 +608,7 @@ g(factor("a,b"))
 ::: {.column width="35%"}
 <br> The error inspector is only invoked if `your` `code` is involved.
 :::
-:::
+::::::
 
 ::: footer
 To have RStudio invoke the debugger on any error,
@@ -759,7 +768,7 @@ View(x)
 
 . . .
 
-::: columns
+:::::: columns
 ::: {.column width="40%"}
 ![](img/colSums-body.png)
 :::
@@ -770,7 +779,7 @@ View(x)
 ::: {.column width="58%"}
 ![](img/colSums-list.PNG)
 :::
-:::
+::::::
 
 ## identify function step
 
@@ -824,7 +833,6 @@ countdown(
 ::: footer
 <https://github.com/rstats-wtf/wtf-debugging>
 :::
-
 
 # Special cases
 
@@ -904,10 +912,9 @@ options(warn = 0, error = NULL)
 
 ![](img/debugging_pick.svg)
 
-
 ## Go forth, <br> and learn from your bugs!
 
-::: columns
+:::::: columns
 ::: {.column width="53%"}
 ![](img/butterflies.gif){fig-align="center"}
 :::
@@ -916,7 +923,6 @@ options(warn = 0, error = NULL)
 :::
 
 ::: {.column width="45%"}
-
 `r fontawesome::fa("road", fill = "white")` traceback
 
 <br>
@@ -927,7 +933,7 @@ options(warn = 0, error = NULL)
 
 `r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   <br> `r fontawesome::fa("hat-wizard", fill = "white")` their code
 :::
-:::
+::::::
 
 ::: footer
 <https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
